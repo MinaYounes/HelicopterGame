@@ -13,7 +13,7 @@ public class EnemyPlane : MonoBehaviour
     {
         rb = GetComponent<Rigidbody2D>();
         // Enemy speed
-        speed = 3f;
+        //speed = 3f;
     }
 
     void FixedUpdate()

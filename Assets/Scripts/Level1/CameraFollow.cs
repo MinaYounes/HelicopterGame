@@ -20,6 +20,12 @@ public class CameraFollow : MonoBehaviour
     // Update is called once per frame
     void LateUpdate()
     {
+        // If player destroyed. don't access it
+        if (!player)
+        {
+            return;
+        }
+
         // Current camera position
         tempPos = transform.position;
         // Sets camera's X position to player's X position
@@ -36,7 +42,6 @@ public class CameraFollow : MonoBehaviour
         {
             tempPos.x = maxX;
         }
-
 
         // Set Camera's position
         transform.position = tempPos;

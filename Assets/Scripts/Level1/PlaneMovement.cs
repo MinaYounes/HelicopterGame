@@ -9,17 +9,17 @@ public class PlaneMovement : MonoBehaviour
 
     public float moveSpeed = 5f;
     public Rigidbody2D rb;
-    private SpriteRenderer sr;
+    //private SpriteRenderer sr;
     bool facingRight = true;
+    private string ENEMY_TAG = "Enemy";
     Vector2 movement;
 
 
     private void Awake()
     {
-        sr = GetComponent<SpriteRenderer>();
+        //sr = GetComponent<SpriteRenderer>();
     }
 
-   
     void Update()
     {
         // Get X movement position
@@ -39,7 +39,6 @@ public class PlaneMovement : MonoBehaviour
             //transform.Rotate(0f, 180f, 0f);
             flip();
         }
-
         // Get Y movement position
         movement.y = Input.GetAxisRaw("Vertical");
     }
@@ -55,8 +54,13 @@ public class PlaneMovement : MonoBehaviour
     {
         facingRight = !facingRight;
         transform.Rotate(0f, 180f, 0f);
-
     }
 
-
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.CompareTag(ENEMY_TAG))
+        {
+            Destroy(gameObject);
+        }
+    }
 }

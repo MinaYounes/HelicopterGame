@@ -14,7 +14,7 @@ public class EnemySpawner : MonoBehaviour
     private GameObject spawnedPlane;
 
     [SerializeField]
-    private Transform leftPos, bottomLeftPos, rightPos, bottomRightPos;
+    private Transform leftMidPos, leftBottomPos, rightMidPos, rightBottomPos, leftTopPos, rightTopPos;
 
     // Random plane spawned
     private int randomIndex;
@@ -37,42 +37,58 @@ public class EnemySpawner : MonoBehaviour
             yield return new WaitForSeconds(Random.Range(2, 4));
 
             randomIndex = Random.Range(0, planeReference.Length);
-            randomSide = Random.Range(0, 4);
+            randomSide = Random.Range(0, 7);
             // Creates copy of plane
             spawnedPlane = Instantiate(planeReference[randomIndex]);
 
-            // Spawn enemy plane in top left position
+            // Spawn enemy plane in top right position
             if (randomSide == 0)
             {
-                spawnedPlane.transform.position = leftPos.position;
+                spawnedPlane.transform.position = rightTopPos.position;
                 // Speed of spawned plane will be random number between 1 and 2
-                spawnedPlane.GetComponent<EnemyPlane>().speed = Random.Range(1, 3);
+                spawnedPlane.GetComponent<EnemyPlane>().speed = -Random.Range(1, 3);
+                // Flips planes coming from the right side
+                spawnedPlane.transform.localScale = new Vector3(-0.1f, 0.1f, 0.1f);
 
             }
-            // Spawn enemy plane in bottom left position
+            // Spawn enemy plane in middle right position
             else if (randomSide == 1)
             {
-                spawnedPlane.transform.position = bottomLeftPos.position;
+                spawnedPlane.transform.position = rightMidPos.position;
+                // Speed of spawned plane will be random number between 1 and 2
+                spawnedPlane.GetComponent<EnemyPlane>().speed = -Random.Range(1, 3);
+                // Flips planes coming from the right side
+                spawnedPlane.transform.localScale = new Vector3(-0.1f, 0.1f, 0.1f);
+            }
+            // Spawn enemy plane in low right position
+            else if (randomSide == 2)
+            {
+                spawnedPlane.transform.position = rightBottomPos.position;
+                // Speed of spawned plane will be random number between 1 and 2
+                spawnedPlane.GetComponent<EnemyPlane>().speed = -Random.Range(1, 3);
+                // Flips planes coming from the right side
+                spawnedPlane.transform.localScale = new Vector3(-0.1f, 0.1f, 0.1f);
+            }
+            // Spawn enemy plane in top left position
+            else if (randomSide == 3)
+            {
+                spawnedPlane.transform.position = leftTopPos.position;
                 // Speed of spawned plane will be random number between 1 and 2
                 spawnedPlane.GetComponent<EnemyPlane>().speed = Random.Range(1, 3);
             }
-            // Spawn enemy plane in top right position
-            else if (randomSide == 2)
+            // Spawn enemy plane in middle left position
+            else if (randomSide == 4)
             {
-                spawnedPlane.transform.position = rightPos.position;
+                spawnedPlane.transform.position = leftMidPos.position;
                 // Speed of spawned plane will be random number between 1 and 2
-                spawnedPlane.GetComponent<EnemyPlane>().speed = -Random.Range(1, 3);
-                // Flips planes coming from the right side
-                spawnedPlane.transform.localScale = new Vector3(-0.1f, 0.1f, 0.1f);
+                spawnedPlane.GetComponent<EnemyPlane>().speed = Random.Range(1, 3);
             }
-            // Spawn enemy plane in bottom right position
+            // Spawn enemy plane in bottom left position
             else
             {
-                spawnedPlane.transform.position = bottomRightPos.position;
+                spawnedPlane.transform.position = leftBottomPos.position;
                 // Speed of spawned plane will be random number between 1 and 2
-                spawnedPlane.GetComponent<EnemyPlane>().speed = -Random.Range(1, 3);
-                // Flips planes coming from the right side
-                spawnedPlane.transform.localScale = new Vector3(-0.1f, 0.1f, 0.1f);
+                spawnedPlane.GetComponent<EnemyPlane>().speed = Random.Range(1, 3);
             }
             enemyCounter++;
         }

@@ -9,7 +9,7 @@ public class PlaneMovement : MonoBehaviour
 
     public float moveSpeed = 5f;
     public Rigidbody2D rb;
-    private SpriteRenderer sr;
+    //private SpriteRenderer sr;
     bool facingRight = true;
     private string ENEMY_TAG = "Enemy";
     Vector2 movement;
@@ -17,7 +17,7 @@ public class PlaneMovement : MonoBehaviour
 
     private void Awake()
     {
-        sr = GetComponent<SpriteRenderer>();
+        //sr = GetComponent<SpriteRenderer>();
     }
 
     void Update()

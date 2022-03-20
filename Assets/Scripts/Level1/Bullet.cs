@@ -14,9 +14,16 @@ public class Bullet : MonoBehaviour
         rb.velocity = transform.right * speed;
     }
 
-    // When collision happens
-     void OnTriggerEnter2D(Collider2D hitInfo)
+    // Destroy bullets when they collide with something
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        Destroy(gameObject);
+    }
+
+    //Code destroys enemies or whatever touches bullet
+    /*
+     private void OnTriggerEnter2D(Collider2D collision)
      {
-         //2d shooting unity 9:50
-     } 
+         Destroy(collision.gameObject);
+     }*/
 }

@@ -10,4 +10,6 @@ public class MainMenuController : MonoBehaviour
     {
         SceneManager.LoadScene("Level1");
     }
+
+    //TODO: scene manager for load game. Do when multiple scenes/levels added
 }

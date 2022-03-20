@@ -6,7 +6,7 @@ using UnityEngine;
 public class EnemySpawner : MonoBehaviour
 {
     int enemyCounter = 0;
-    int enemyLimit = 6;
+    int enemyLimit = 10;
 
     [SerializeField]
     private GameObject[] planeReference;

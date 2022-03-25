@@ -14,10 +14,13 @@ public class Bullet : MonoBehaviour
         rb.velocity = transform.right * speed;
     }
 
-    // Destroy bullets when they collide with something
+    // Destroy bullets when they collide with something else than other bullets
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        Destroy(gameObject);
+        if (!(collision.gameObject.CompareTag("Bullet")))
+        {
+            Destroy(gameObject);
+        }
     }
 
     //Code destroys enemies or whatever touches bullet

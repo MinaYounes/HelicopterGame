@@ -1415,6 +1415,10 @@ PrefabInstance:
       propertyPath: m_LocalPosition.y
       value: -1.19
       objectReference: {fileID: 0}
+    - target: {fileID: 7177562625524159680, guid: df513ae0260a6d24b86b6538394a4572, type: 3}
+      propertyPath: m_GravityScale
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 7177562625524159683, guid: df513ae0260a6d24b86b6538394a4572, type: 3}
       propertyPath: m_Name
       value: PlanePlayer

@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PlaneMovement : MonoBehaviour
 {
@@ -61,6 +62,7 @@ public class PlaneMovement : MonoBehaviour
         if (collision.gameObject.CompareTag(ENEMY_TAG))
         {
             Destroy(gameObject);
+            SceneManager.LoadScene("Death");
         }
     }
 }

@@ -15,11 +15,11 @@ public class Weapon : MonoBehaviour
         // When the key "F" is pressed
         if (Input.GetKeyDown(KeyCode.F))
         {
-            shoot();
+            Shoot();
         }
     }
 
-    void shoot()
+    void Shoot()
     {
         Instantiate(bulletPrefab, firePoint.position, firePoint.rotation);
     }

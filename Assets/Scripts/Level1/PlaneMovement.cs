@@ -30,14 +30,14 @@ public class PlaneMovement : MonoBehaviour
         {
             //sr.flipX = false;
             //transform.Rotate(0f, 0f, 0f);
-            flip();
+            Flip();
         }
         // If "A" pressed, plane faces left side
         else if (movement.x < 0 && facingRight)
         {
             //sr.flipX = true;
             //transform.Rotate(0f, 180f, 0f);
-            flip();
+            Flip();
         }
         // Get Y movement position
         movement.y = Input.GetAxisRaw("Vertical");
@@ -50,7 +50,7 @@ public class PlaneMovement : MonoBehaviour
     }
 
     // function flips plane 180 degrees
-    private void flip()
+    private void Flip()
     {
         facingRight = !facingRight;
         transform.Rotate(0f, 180f, 0f);

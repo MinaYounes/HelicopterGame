@@ -20,6 +20,6 @@ public class ReadInput : MonoBehaviour
     // take user email input
     public void ReadString(string text)
     {
-        input = text;
+        this.input = text;
     }
 }

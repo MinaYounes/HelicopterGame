@@ -9,16 +9,33 @@ public class EnemyPlane : MonoBehaviour
     public float speed;
     private Rigidbody2D rb;
     private string LIMIT_TAG = "Limit";
+    private string BULLET = "Bullet";
     private SpriteRenderer sr;
+    private int health = 100;
+
 
     void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
         sr = GetComponent<SpriteRenderer>();
+
     }
     // In case of collision
     private void OnCollisionEnter2D(Collision2D collision)
     {
+
+        if (collision.gameObject.CompareTag("Bullet"))
+        {
+            Debug.Log("HIT");
+            health -= 20;
+
+            if (health <= 0)
+            {
+                Destroy(gameObject);
+            }
+        }
+
+
         // When enemy plane collides with walls, flip plane
         if (collision.gameObject.CompareTag(LIMIT_TAG))
         {
@@ -35,4 +52,15 @@ public class EnemyPlane : MonoBehaviour
         rb.velocity = new Vector2(speed, rb.velocity.y);
     }
 
+    // method will decrease health if touched by bullet
+    public void decreaseHealth()
+    {
+        health -= 20;
+
+        // if health is 0, destroy the plane
+        if(health <= 0)
+        {
+            Destroy(gameObject);
+        }
+    }
 }

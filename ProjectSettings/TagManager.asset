@@ -8,6 +8,9 @@ TagManager:
   - Limit
   - Collector
   - Bullet
+  - Airport
+  - SpawnerBottomRight
+  - SpawnerBottomLeft
   layers:
   - Default
   - TransparentFX

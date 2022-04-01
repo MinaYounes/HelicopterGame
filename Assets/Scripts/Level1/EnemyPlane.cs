@@ -9,7 +9,7 @@ public class EnemyPlane : MonoBehaviour
     public float speed;
     private Rigidbody2D rb;
     private string LIMIT_TAG = "Limit";
-    private string BULLET = "Bullet";
+    private string AIRPORT_TAG = "Airport";
     private SpriteRenderer sr;
     private int health = 100;
 
@@ -23,21 +23,8 @@ public class EnemyPlane : MonoBehaviour
     // In case of collision
     private void OnCollisionEnter2D(Collision2D collision)
     {
-
-        if (collision.gameObject.CompareTag("Bullet"))
-        {
-            Debug.Log("HIT");
-            health -= 20;
-
-            if (health <= 0)
-            {
-                Destroy(gameObject);
-            }
-        }
-
-
         // When enemy plane collides with walls, flip plane
-        if (collision.gameObject.CompareTag(LIMIT_TAG))
+        if (collision.gameObject.CompareTag(LIMIT_TAG) || collision.gameObject.CompareTag(AIRPORT_TAG))
         {
             // flip plane's direction on X axis
             sr.flipX = !sr.flipX;

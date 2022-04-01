@@ -8,11 +8,12 @@ public class PlaneMovement : MonoBehaviour
 
     // Code reused from Youtube video by Brackleys
 
-    public float moveSpeed = 5f;
+    public float moveSpeed = 3.5f;
     public Rigidbody2D rb;
     //private SpriteRenderer sr;
     bool facingRight = true;
     private string ENEMY_TAG = "Enemy";
+    private string AIRPORT_TAG = "Airport";
     Vector2 movement;
 
 
@@ -57,10 +58,10 @@ public class PlaneMovement : MonoBehaviour
         transform.Rotate(0f, 180f, 0f);
     }
 
-    // if player plane touches an enemy plane, user dies
+    // if player plane touches an enemy plane or airport, user dies
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.CompareTag(ENEMY_TAG))
+        if (collision.gameObject.CompareTag(ENEMY_TAG) || collision.gameObject.CompareTag(AIRPORT_TAG))
         {
             Destroy(gameObject);
             SceneManager.LoadScene("Death");

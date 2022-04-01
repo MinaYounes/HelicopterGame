@@ -15,16 +15,25 @@ public class Bullet : MonoBehaviour
         rb.velocity = transform.right * speed;
     }
     
-    // Destroy bullets when they collide with enemy planes
+    // Destroy bullets when they collide with enemy planes or airports
     private void OnTriggerEnter2D(Collider2D collision)
     {
         GameObject other = collision.gameObject;
+        // if bullet touches enemy plane
         if (collision.gameObject.CompareTag("Enemy"))
         {
             // destroy bullet if touches enemy plane
             Destroy(gameObject);
             // decrease health of enemy plane if touched by bullet
             other.GetComponent<EnemyPlane>().decreaseHealth(); 
+        }
+        // if bullet touches airport
+        if (collision.gameObject.CompareTag("Airport"))
+        {
+            // destroy bullet if touches airport
+            Destroy(gameObject);
+            // decrease health of airport if touched by bullet
+            other.GetComponent<Airport>().decreaseHealth();
         }
     }
 

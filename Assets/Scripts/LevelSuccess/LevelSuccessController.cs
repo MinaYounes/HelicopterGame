@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 public class LevelSuccessController : MonoBehaviour
 {
+    private int SceneTracker = 1;
     // clicking store goes to store scene
     public void Store()
     {
@@ -16,10 +17,10 @@ public class LevelSuccessController : MonoBehaviour
         //TODO at the end
     }
 
-    // clicking next level goes from lvl1 to lvl2
-    public void NextLevel1to2()
+    // clicking next level goes to the next level
+    public void NextLevel()
     {
-        //uncomment out when level 2 done
-        //SceneManager.LoadScene("Level1");
+        SceneTracker++;
+        SceneManager.LoadScene(SceneTracker);
     }
 }

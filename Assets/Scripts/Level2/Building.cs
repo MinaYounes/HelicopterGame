@@ -2,26 +2,32 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Guys : MonoBehaviour
+public class Building : MonoBehaviour
 {
+    private string PLAYER_TAG = "Player";
+    private int guysPickedUp = 0;
     PlaneMovement plane;
     GameObject findPlane;
-    private string PLAYER_TAG = "Player";
+    private bool guysRescued = false;
 
-    private void Awake()
+    void Awake()
     {
         findPlane = GameObject.FindGameObjectWithTag(PLAYER_TAG);
     }
 
+    // if building gets touched by player
     private void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.gameObject.CompareTag(PLAYER_TAG))
         {
             plane = findPlane.GetComponent<PlaneMovement>();
-            plane.levelTwoTracker();
-            plane.PickedUp();
-            Destroy(gameObject);
+            guysPickedUp = plane.PickedUpGetter();
 
+            if(guysPickedUp == 7 && guysRescued == false)
+            {
+                plane.levelTwoTracker();
+                guysRescued = true;
+            }
         }
     }
 }

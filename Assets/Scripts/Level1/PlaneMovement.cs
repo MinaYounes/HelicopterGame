@@ -19,6 +19,7 @@ public class PlaneMovement : MonoBehaviour
     private int levelOneProgress = 0;
     private bool levelTwoCompleted = false;
     private int levelTwoProgress = 0;
+    private int guysPickedUp = 0;
 
     void Update()
     {
@@ -81,7 +82,7 @@ public class PlaneMovement : MonoBehaviour
     public void levelTwoTracker()
     {
         levelTwoProgress++;
-        if (levelTwoProgress == 22)
+        if (levelTwoProgress == 23)
         {
             levelTwoCompleted = true;
         }
@@ -99,5 +100,15 @@ public class PlaneMovement : MonoBehaviour
     {
         yield return new WaitForSeconds(2);
         SceneManager.LoadScene("LevelSuccess");
+    }
+
+    public void PickedUp()
+    {
+        guysPickedUp++;
+    }
+
+    public int PickedUpGetter()
+    {
+        return guysPickedUp;
     }
 }

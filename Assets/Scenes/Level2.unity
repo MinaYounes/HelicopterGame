@@ -547,6 +547,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: PlanePlayer
       objectReference: {fileID: 0}
+    - target: {fileID: 7177562625524159709, guid: df513ae0260a6d24b86b6538394a4572, type: 3}
+      propertyPath: bulletPrefab
+      value: 
+      objectReference: {fileID: 3439062253290305094, guid: c168f3a8cfc43024b8d47f781d60bc47, type: 3}
     - target: {fileID: 7177562625524159710, guid: df513ae0260a6d24b86b6538394a4572, type: 3}
       propertyPath: m_RootOrder
       value: 4
@@ -798,7 +802,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 90289066bb788494889fd52c7a91cc08, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  minX: -49.5
+  minX: -40.5
   maxX: 41
 --- !u!1 &470248787
 GameObject:

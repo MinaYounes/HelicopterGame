@@ -14,6 +14,7 @@ public class EnemyPlane : MonoBehaviour
     private string PLAYER_TAG = "Player";
     private string BUILDING_TAG = "Building";
     private string GUYS_TAG = "Guys";
+    private string METALBOX_TAG = "MetalBox";
 
     private SpriteRenderer sr;
     private int health = 100;
@@ -33,8 +34,9 @@ public class EnemyPlane : MonoBehaviour
     // In case of collision
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        // When enemy plane collides with walls, airport, guys, or building flip plane
-        if (collision.gameObject.CompareTag(LIMIT_TAG) || collision.gameObject.CompareTag(AIRPORT_TAG) || collision.gameObject.CompareTag(BUILDING_TAG))
+        // When enemy plane collides with walls, airport, guys, building, or metal crate flip plane
+        if (collision.gameObject.CompareTag(LIMIT_TAG) || collision.gameObject.CompareTag(AIRPORT_TAG) || collision.gameObject.CompareTag(BUILDING_TAG)
+            || collision.gameObject.CompareTag(METALBOX_TAG))
         {
             // flip plane's direction on X axis
             sr.flipX = !sr.flipX;
@@ -83,4 +85,5 @@ public class EnemyPlane : MonoBehaviour
         Instantiate(Explosion, transform.position, Quaternion.identity);
         Destroy(gameObject);
     }
+
 }

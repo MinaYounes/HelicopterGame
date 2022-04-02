@@ -14,6 +14,7 @@ public class PlaneMovement : MonoBehaviour
     private string ENEMY_TAG = "Enemy";
     private string ENEMYLVL2_TAG = "Enemy2";
     private string AIRPORT_TAG = "Airport";
+    private string METALBOX_TAG = "MetalBox";
     Vector2 movement;
     private bool levelOneCompleted = false;
     private int levelOneProgress = 0;
@@ -53,10 +54,11 @@ public class PlaneMovement : MonoBehaviour
         transform.Rotate(0f, 180f, 0f);
     }
 
-    // if player plane touches an enemy plane or airport, user dies
+    // if player plane touches an enemy plane, airport, or metal crates
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.CompareTag(ENEMY_TAG) || collision.gameObject.CompareTag(ENEMYLVL2_TAG) || collision.gameObject.CompareTag(AIRPORT_TAG))
+        if (collision.gameObject.CompareTag(ENEMY_TAG)|| collision.gameObject.CompareTag(ENEMYLVL2_TAG) || collision.gameObject.CompareTag(AIRPORT_TAG) 
+            || collision.gameObject.CompareTag(METALBOX_TAG))
         {
             Destroy(gameObject);
             SceneManager.LoadScene("Death");

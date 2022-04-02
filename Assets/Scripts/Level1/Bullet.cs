@@ -9,6 +9,7 @@ public class Bullet : MonoBehaviour
     private string AIRPORT_TAG = "Airport";
     private string ENEMY_TAG = "Enemy";
     private string ENEMYLVL2_TAG = "Enemy2";
+    private string METALBOX_TAG = "MetalBox";
    
 
     // Start is called before the first frame update
@@ -22,8 +23,8 @@ public class Bullet : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D collision)
     {
         GameObject other = collision.gameObject;
-        // if bullet touches enemy plane
-        if (collision.gameObject.CompareTag(ENEMY_TAG) || collision.gameObject.CompareTag(ENEMYLVL2_TAG))
+        // if bullet touches enemy plane or metal crate destroy it
+        if (collision.gameObject.CompareTag(ENEMY_TAG) || collision.gameObject.CompareTag(ENEMYLVL2_TAG) || collision.gameObject.CompareTag(METALBOX_TAG))
         {
             // destroy bullet if touches enemy plane
             Destroy(gameObject);

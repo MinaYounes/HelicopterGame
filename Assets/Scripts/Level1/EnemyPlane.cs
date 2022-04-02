@@ -10,6 +10,10 @@ public class EnemyPlane : MonoBehaviour
     private Rigidbody2D rb;
     private string LIMIT_TAG = "Limit";
     private string AIRPORT_TAG = "Airport";
+    private string PLAYER_TAG = "Player";
+    private string BUILDING_TAG = "Building";
+    private string GUYS_TAG = "Guys";
+
     private SpriteRenderer sr;
     private int health = 100;
     PlaneMovement plane;
@@ -22,14 +26,15 @@ public class EnemyPlane : MonoBehaviour
     {
         rb = GetComponent<Rigidbody2D>();
         sr = GetComponent<SpriteRenderer>();
-        findPlane = GameObject.FindGameObjectWithTag("Player");
+        findPlane = GameObject.FindGameObjectWithTag(PLAYER_TAG);
 
     }
     // In case of collision
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        // When enemy plane collides with walls, flip plane
-        if (collision.gameObject.CompareTag(LIMIT_TAG) || collision.gameObject.CompareTag(AIRPORT_TAG))
+        // When enemy plane collides with walls, airport, guys, or building flip plane
+        if (collision.gameObject.CompareTag(LIMIT_TAG) || collision.gameObject.CompareTag(AIRPORT_TAG) || collision.gameObject.CompareTag(BUILDING_TAG) 
+            || collision.gameObject.CompareTag(GUYS_TAG))
         {
             // flip plane's direction on X axis
             sr.flipX = !sr.flipX;
@@ -54,6 +59,20 @@ public class EnemyPlane : MonoBehaviour
         {
             plane = findPlane.GetComponent<PlaneMovement>();
             plane.levelOneTracker();
+            Instantiate(Explosion, transform.position, Quaternion.identity);
+            Destroy(gameObject);
+        }
+    }
+
+    public void decreaseHealthLvl2()
+    {
+        health -= 20;
+
+        // if health is 0, destroy the plane
+        if (health <= 0)
+        {
+            plane = findPlane.GetComponent<PlaneMovement>();
+            plane.levelTwoTracker();
             Instantiate(Explosion, transform.position, Quaternion.identity);
             Destroy(gameObject);
         }

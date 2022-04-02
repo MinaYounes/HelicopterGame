@@ -9,18 +9,27 @@ public class EnemyPlane : MonoBehaviour
     public float speed;
     private Rigidbody2D rb;
     private string LIMIT_TAG = "Limit";
+    private string AIRPORT_TAG = "Airport";
     private SpriteRenderer sr;
+    private int health = 100;
+    PlaneMovement plane;
+    GameObject findPlane;
+    public GameObject Explosion;
+    
+
 
     void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
         sr = GetComponent<SpriteRenderer>();
+        findPlane = GameObject.FindGameObjectWithTag("Player");
+
     }
     // In case of collision
     private void OnCollisionEnter2D(Collision2D collision)
     {
         // When enemy plane collides with walls, flip plane
-        if (collision.gameObject.CompareTag(LIMIT_TAG))
+        if (collision.gameObject.CompareTag(LIMIT_TAG) || collision.gameObject.CompareTag(AIRPORT_TAG))
         {
             // flip plane's direction on X axis
             sr.flipX = !sr.flipX;
@@ -35,4 +44,18 @@ public class EnemyPlane : MonoBehaviour
         rb.velocity = new Vector2(speed, rb.velocity.y);
     }
 
+    // method will decrease health if touched by bullet
+    public void decreaseHealth()
+    {
+        health -= 20;
+
+        // if health is 0, destroy the plane
+        if(health <= 0)
+        {
+            plane = findPlane.GetComponent<PlaneMovement>();
+            plane.levelOneTracker();
+            Instantiate(Explosion, transform.position, Quaternion.identity);
+            Destroy(gameObject);
+        }
+    }
 }

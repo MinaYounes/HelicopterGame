@@ -18,7 +18,7 @@ public class Guys : MonoBehaviour
         if (collision.gameObject.CompareTag(PLAYER_TAG))
         {
             plane = findPlane.GetComponent<PlaneMovement>();
-            plane.levelTwoTracker();
+            plane.LevelTracker(2);
             plane.PickedUp();
             Destroy(gameObject);
 

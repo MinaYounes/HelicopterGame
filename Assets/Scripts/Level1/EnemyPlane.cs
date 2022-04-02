@@ -56,31 +56,31 @@ public class EnemyPlane : MonoBehaviour
     }
 
     // method will decrease health if touched by bullet
-    public void decreaseHealth()
+    public void DecreaseHealth(int level)
     {
         health -= 20;
 
         // if health is 0, destroy the plane
         if(health <= 0)
         {
-            plane = findPlane.GetComponent<PlaneMovement>();
-            plane.levelOneTracker();
-            Instantiate(Explosion, transform.position, Quaternion.identity);
-            Destroy(gameObject);
+            ExplodeAndDestroy();
+            if (level == 1)
+            {
+                plane.LevelTracker(1);
+            }
+
+            if(level == 2)
+            {
+                plane.LevelTracker(2);
+            }
         }
     }
 
-    public void decreaseHealthLvl2()
+    // function will make an explosion effect and destroy the object
+    void ExplodeAndDestroy()
     {
-        health -= 20;
-
-        // if health is 0, destroy the plane
-        if (health <= 0)
-        {
-            plane = findPlane.GetComponent<PlaneMovement>();
-            plane.levelTwoTracker();
-            Instantiate(Explosion, transform.position, Quaternion.identity);
-            Destroy(gameObject);
-        }
+        plane = findPlane.GetComponent<PlaneMovement>();
+        Instantiate(Explosion, transform.position, Quaternion.identity);
+        Destroy(gameObject);
     }
 }

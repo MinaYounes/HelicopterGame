@@ -14,7 +14,7 @@ public class Airport : MonoBehaviour
     }
 
     // method will decrease health if touched by bullet
-    public void decreaseHealth()
+    public void DecreaseHealth()
     {
         health -= 10;
 
@@ -22,7 +22,7 @@ public class Airport : MonoBehaviour
         if (health <= 0)
         {
             plane = findPlane.GetComponent<PlaneMovement>();
-            plane.levelOneTracker();
+            plane.LevelTracker(1);
             Instantiate(Explosion, transform.position, Quaternion.identity);
             Destroy(gameObject);
         }

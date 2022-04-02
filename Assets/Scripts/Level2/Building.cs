@@ -25,7 +25,7 @@ public class Building : MonoBehaviour
 
             if(guysPickedUp == 7 && guysRescued == false)
             {
-                plane.levelTwoTracker();
+                plane.LevelTracker(2);
                 guysRescued = true;
             }
         }

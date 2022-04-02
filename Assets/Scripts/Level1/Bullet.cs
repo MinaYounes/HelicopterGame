@@ -30,11 +30,11 @@ public class Bullet : MonoBehaviour
             // decrease health of enemy plane if touched by bullet
             if (collision.gameObject.CompareTag(ENEMY_TAG))
             {
-                other.GetComponent<EnemyPlane>().decreaseHealth();
+                other.GetComponent<EnemyPlane>().DecreaseHealth(1);
             }
             else if(collision.gameObject.CompareTag(ENEMYLVL2_TAG))
             {
-                other.GetComponent<EnemyPlane>().decreaseHealthLvl2();
+                other.GetComponent<EnemyPlane>().DecreaseHealth(2);
             }
         }
         // if bullet touches airport
@@ -43,7 +43,7 @@ public class Bullet : MonoBehaviour
             // destroy bullet if touches airport
             Destroy(gameObject);
             // decrease health of airport if touched by bullet
-            other.GetComponent<Airport>().decreaseHealth();
+            other.GetComponent<Airport>().DecreaseHealth();
         }
     }
 

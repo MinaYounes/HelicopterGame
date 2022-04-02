@@ -17,7 +17,7 @@ public class PlaneMovement : MonoBehaviour
     Vector2 movement;
     private bool levelOneCompleted = false;
     private int levelOneProgress = 0;
-    private bool levelTwoCompleted = false;
+   private bool levelTwoCompleted = false;
     private int levelTwoProgress = 0;
     private int guysPickedUp = 0;
 
@@ -64,22 +64,34 @@ public class PlaneMovement : MonoBehaviour
     }
 
     // checks if level 1 is completed or not yet
-    public void levelOneTracker()
+    public void LevelTracker(int level)
     {
-        levelOneProgress++;
-        if(levelOneProgress == 12)
+        if (level == 1)
         {
-            levelOneCompleted = true;
+            levelOneProgress++;
+            if (levelOneProgress == 12)
+            {
+                levelOneCompleted = true;
+            }
         }
 
-        // if level one completed, calls coroutine to wait 2 sec and then change scenes
-        if(levelOneCompleted)
+        if(level == 2)
         {
-            StartCoroutine(waitFewSeconds());
+            levelTwoProgress++;
+            if (levelTwoProgress == 23)
+            {
+                levelTwoCompleted = true;
+            }
         }
+            // if level one completed, calls coroutine to wait 2 sec and then change scenes
+            if (levelOneCompleted || levelTwoCompleted)
+            {
+                StartCoroutine(waitFewSeconds());
+            }
+        
     }
 
-    public void levelTwoTracker()
+    /*public void levelTwoTracker()
     {
         levelTwoProgress++;
         if (levelTwoProgress == 23)
@@ -92,8 +104,8 @@ public class PlaneMovement : MonoBehaviour
         {
             StartCoroutine(waitFewSeconds());
         }
-    }
-    // ADD LEVEL TO COROUTINEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEE, reduce function tracker
+    } */
+   
 
     // Coroutine, will wait 2 seconds and change scene to level completed successfully
     IEnumerator waitFewSeconds()

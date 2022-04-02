@@ -275,6 +275,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b582310c169cee2408bf703e9b59da12, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Explosion: {fileID: 807199900086010597, guid: d1029d8277fb5c843acad7e4ddd5cb81, type: 3}
 --- !u!1 &117539201
 GameObject:
   m_ObjectHideFlags: 0
@@ -674,6 +675,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b582310c169cee2408bf703e9b59da12, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Explosion: {fileID: 807199900086010597, guid: d1029d8277fb5c843acad7e4ddd5cb81, type: 3}
 --- !u!1 &772432658
 GameObject:
   m_ObjectHideFlags: 0

@@ -14,6 +14,7 @@ public class EnemyPlane : MonoBehaviour
     private int health = 100;
     PlaneMovement plane;
     GameObject findPlane;
+    public GameObject Explosion;
     
 
 
@@ -53,7 +54,7 @@ public class EnemyPlane : MonoBehaviour
         {
             plane = findPlane.GetComponent<PlaneMovement>();
             plane.levelOneTracker();
-            //Instantiate(deathEffect, transform.position, Quaternion.identity);
+            Instantiate(Explosion, transform.position, Quaternion.identity);
             Destroy(gameObject);
         }
     }

@@ -6,7 +6,8 @@ public class Airport : MonoBehaviour
 {
     private int health = 100;
     PlaneMovement plane;
-    GameObject findPlane;// = GameObject.FindGameObjectWithTag("Player");
+    GameObject findPlane;
+    public GameObject Explosion;
     private void Awake()
     {
         findPlane = GameObject.FindGameObjectWithTag("Player");
@@ -22,6 +23,7 @@ public class Airport : MonoBehaviour
         {
             plane = findPlane.GetComponent<PlaneMovement>();
             plane.levelOneTracker();
+            Instantiate(Explosion, transform.position, Quaternion.identity);
             Destroy(gameObject);
         }
     }

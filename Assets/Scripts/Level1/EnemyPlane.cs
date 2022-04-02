@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class EnemyPlane : MonoBehaviour
 {
@@ -33,13 +34,18 @@ public class EnemyPlane : MonoBehaviour
     private void OnCollisionEnter2D(Collision2D collision)
     {
         // When enemy plane collides with walls, airport, guys, or building flip plane
-        if (collision.gameObject.CompareTag(LIMIT_TAG) || collision.gameObject.CompareTag(AIRPORT_TAG) || collision.gameObject.CompareTag(BUILDING_TAG) 
-            || collision.gameObject.CompareTag(GUYS_TAG))
+        if (collision.gameObject.CompareTag(LIMIT_TAG) || collision.gameObject.CompareTag(AIRPORT_TAG) || collision.gameObject.CompareTag(BUILDING_TAG))
         {
             // flip plane's direction on X axis
             sr.flipX = !sr.flipX;
             // change speed to go other way
             speed = -speed;
+        }
+
+        // if enemy plane touches one of the guys to rescue, level failed
+        if(collision.gameObject.CompareTag(GUYS_TAG))
+        {
+            SceneManager.LoadScene("Death");
         }
     }
 

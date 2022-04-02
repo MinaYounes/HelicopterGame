@@ -9,4 +9,10 @@ public class ChangeScene : MonoBehaviour
     {
         SceneManager.LoadScene(sceneName);
     }
+
+    //public IEnumerator DoChangeToScene(string sceneName)
+    //{
+      //  yield return new WaitForSeconds(10);
+       // SceneManager.LoadScene(sceneName);
+   // }
 }

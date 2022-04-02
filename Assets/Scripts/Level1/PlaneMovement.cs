@@ -71,6 +71,7 @@ public class PlaneMovement : MonoBehaviour
         }
     }
 
+    // checks if level 1 is completed or not yet
     public void levelOneTracker()
     {
         levelOneProgress++;
@@ -79,9 +80,17 @@ public class PlaneMovement : MonoBehaviour
             levelOneCompleted = true;
         }
 
+        // if level one completed, calls coroutine to wait 2 sec and then change scenes
         if(levelOneCompleted)
         {
-            SceneManager.LoadScene("LevelSuccess");
+            StartCoroutine(waitFewSeconds());
         }
+    }
+
+    // Coroutine, will wait 2 seconds and change scene to level completed successfully
+    IEnumerator waitFewSeconds()
+    {
+        yield return new WaitForSeconds(2);
+        SceneManager.LoadScene("LevelSuccess");
     }
 }

@@ -12,12 +12,16 @@ public class EnemyPlane : MonoBehaviour
     private string AIRPORT_TAG = "Airport";
     private SpriteRenderer sr;
     private int health = 100;
+    PlaneMovement plane;
+    GameObject findPlane;
+    
 
 
     void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
         sr = GetComponent<SpriteRenderer>();
+        findPlane = GameObject.FindGameObjectWithTag("Player");
 
     }
     // In case of collision
@@ -47,6 +51,9 @@ public class EnemyPlane : MonoBehaviour
         // if health is 0, destroy the plane
         if(health <= 0)
         {
+            plane = findPlane.GetComponent<PlaneMovement>();
+            plane.levelOneTracker();
+            //Instantiate(deathEffect, transform.position, Quaternion.identity);
             Destroy(gameObject);
         }
     }

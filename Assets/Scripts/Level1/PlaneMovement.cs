@@ -15,6 +15,9 @@ public class PlaneMovement : MonoBehaviour
     private string ENEMY_TAG = "Enemy";
     private string AIRPORT_TAG = "Airport";
     Vector2 movement;
+    private bool levelOneCompleted = false;
+    private int levelOneProgress = 0;
+
 
 
     private void Awake()
@@ -65,6 +68,20 @@ public class PlaneMovement : MonoBehaviour
         {
             Destroy(gameObject);
             SceneManager.LoadScene("Death");
+        }
+    }
+
+    public void levelOneTracker()
+    {
+        levelOneProgress++;
+        if(levelOneProgress == 12)
+        {
+            levelOneCompleted = true;
+        }
+
+        if(levelOneCompleted)
+        {
+            SceneManager.LoadScene("LevelSuccess");
         }
     }
 }

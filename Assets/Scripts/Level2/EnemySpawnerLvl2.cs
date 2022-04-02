@@ -6,7 +6,7 @@ using UnityEngine;
 public class EnemySpawnerLvl2 : MonoBehaviour
 {
     int enemyCounter = 0;
-    int enemyLimit = 10;
+    int enemyLimit = 15;
 
     [SerializeField]
     private GameObject[] planeReference;
@@ -34,7 +34,7 @@ public class EnemySpawnerLvl2 : MonoBehaviour
         while (enemyCounter < enemyLimit)
         {
             // Spawn monster every second
-            yield return new WaitForSeconds(0);
+            yield return new WaitForSeconds(1);
 
             randomIndex = Random.Range(0, planeReference.Length);
             randomSide = Random.Range(0, 7);
@@ -72,7 +72,7 @@ public class EnemySpawnerLvl2 : MonoBehaviour
                 spawnedPlane.transform.position = rightBottom2.position;
                 PlaneSpawner();
             }
-            // Spawn enemy plane in bottom right 2 position
+            // Spawn enemy plane in bottom right 3 position
             else
             {
                 spawnedPlane.transform.position = rightBottom3.position;
@@ -84,8 +84,8 @@ public class EnemySpawnerLvl2 : MonoBehaviour
         // function will make plane have a speed between 3 and 4
         void PlaneSpawner()
         {
-            // Speed of spawned plane will be random number between 3 and 4
-            spawnedPlane.GetComponent<EnemyPlane>().speed = -Random.Range(3, 5);
+            // Speed of spawned plane will be random number between 2 and 3
+            spawnedPlane.GetComponent<EnemyPlane>().speed = -Random.Range(2, 4);
             // Flips planes coming from the right side
             spawnedPlane.transform.localScale = new Vector3(-0.1f, 0.1f, 0.1f);
 

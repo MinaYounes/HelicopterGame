@@ -6,6 +6,9 @@ public class Bullet : MonoBehaviour
 {
     public float speed = 7f;
     public Rigidbody2D rb;
+    private string AIRPORT_TAG = "Airport";
+    private string ENEMY_TAG = "Enemy";
+    private string ENEMYLVL2_TAG = "Enemy2";
    
 
     // Start is called before the first frame update
@@ -20,20 +23,27 @@ public class Bullet : MonoBehaviour
     {
         GameObject other = collision.gameObject;
         // if bullet touches enemy plane
-        if (collision.gameObject.CompareTag("Enemy"))
+        if (collision.gameObject.CompareTag(ENEMY_TAG) || collision.gameObject.CompareTag(ENEMYLVL2_TAG))
         {
             // destroy bullet if touches enemy plane
             Destroy(gameObject);
             // decrease health of enemy plane if touched by bullet
-            other.GetComponent<EnemyPlane>().decreaseHealth(); 
+            if (collision.gameObject.CompareTag(ENEMY_TAG))
+            {
+                other.GetComponent<EnemyPlane>().DecreaseHealth(1);
+            }
+            else if(collision.gameObject.CompareTag(ENEMYLVL2_TAG))
+            {
+                other.GetComponent<EnemyPlane>().DecreaseHealth(2);
+            }
         }
         // if bullet touches airport
-        if (collision.gameObject.CompareTag("Airport"))
+        if (collision.gameObject.CompareTag(AIRPORT_TAG))
         {
             // destroy bullet if touches airport
             Destroy(gameObject);
             // decrease health of airport if touched by bullet
-            other.GetComponent<Airport>().decreaseHealth();
+            other.GetComponent<Airport>().DecreaseHealth();
         }
     }
 

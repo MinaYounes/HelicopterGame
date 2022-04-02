@@ -11,6 +11,9 @@ TagManager:
   - Airport
   - SpawnerBottomRight
   - SpawnerBottomLeft
+  - Guys
+  - Enemy2
+  - Building
   layers:
   - Default
   - TransparentFX

@@ -9,6 +9,7 @@ public class Bullet : MonoBehaviour
     private string AIRPORT_TAG = "Airport";
     private string ENEMY_TAG = "Enemy";
     private string ENEMYLVL2_TAG = "Enemy2";
+    private string ENEMYLVL3_TAG = "Enemy3";
     private string METALBOX_TAG = "MetalBox";
    
 
@@ -24,7 +25,8 @@ public class Bullet : MonoBehaviour
     {
         GameObject other = collision.gameObject;
         // if bullet touches enemy plane or metal crate destroy it
-        if (collision.gameObject.CompareTag(ENEMY_TAG) || collision.gameObject.CompareTag(ENEMYLVL2_TAG) || collision.gameObject.CompareTag(METALBOX_TAG))
+        if (collision.gameObject.CompareTag(ENEMY_TAG) || collision.gameObject.CompareTag(ENEMYLVL2_TAG) || collision.gameObject.CompareTag(METALBOX_TAG)
+            || collision.gameObject.CompareTag(ENEMYLVL3_TAG))
         {
             // destroy bullet if touches enemy plane
             Destroy(gameObject);
@@ -36,6 +38,10 @@ public class Bullet : MonoBehaviour
             else if(collision.gameObject.CompareTag(ENEMYLVL2_TAG))
             {
                 other.GetComponent<EnemyPlane>().DecreaseHealth(2);
+            }
+            else if(collision.gameObject.CompareTag(ENEMYLVL3_TAG))
+            {
+                other.GetComponent<EnemyPlane>().DecreaseHealth(3);
             }
         }
         // if bullet touches airport

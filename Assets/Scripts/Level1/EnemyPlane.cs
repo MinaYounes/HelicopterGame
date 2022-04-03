@@ -75,6 +75,11 @@ public class EnemyPlane : MonoBehaviour
             {
                 plane.LevelTracker(2);
             }
+
+            if(level == 3)
+            {
+                plane.LevelTracker(3);
+            }
         }
     }
 

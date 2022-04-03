@@ -89,8 +89,8 @@ public class EnemySpawnerLvl3 : MonoBehaviour
     // when a plane spawns from right, set speed and direction
     void PlaneSpawnFromRight()
     {
-        // Speed of spawned plane will be random number between 2 and 3
-        spawnedPlane.GetComponent<EnemyPlane>().speed = -Random.Range(2, 4);
+        // Speed of spawned plane will be random number between 3 and 4
+        spawnedPlane.GetComponent<EnemyPlane>().speed = -Random.Range(3, 5);
         // Flips planes coming from the right side
         spawnedPlane.transform.localScale = new Vector3(-0.1f, 0.1f, 0.1f);
     }
@@ -98,8 +98,8 @@ public class EnemySpawnerLvl3 : MonoBehaviour
     // when a plane spawns from left, set speed 
     void PlaneSpawnFromLeft()
     {
-        // Speed of spawned plane will be random number between 2 and 3
-        spawnedPlane.GetComponent<EnemyPlane>().speed = Random.Range(2, 4);
+        // Speed of spawned plane will be random number between 3 and 4
+        spawnedPlane.GetComponent<EnemyPlane>().speed = Random.Range(3, 5);
     }
 }
 

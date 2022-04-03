@@ -16,6 +16,7 @@ public class PlaneMovement : MonoBehaviour
     private string ENEMYLVL3_TAG = "Enemy3";
     private string AIRPORT_TAG = "Airport";
     private string METALBOX_TAG = "MetalBox";
+    private string LIMIT_TAG = "Limit";
     Vector2 movement;
     private bool levelOneCompleted = false;
     private int levelOneProgress = 0;
@@ -57,11 +58,11 @@ public class PlaneMovement : MonoBehaviour
         transform.Rotate(0f, 180f, 0f);
     }
 
-    // if player plane touches an enemy plane, airport, metal crates, or exit sign at lvl3
+    // if player plane touches ground, an enemy plane, airport, metal crates, or exit sign at lvl3
     private void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.gameObject.CompareTag(ENEMY_TAG)|| collision.gameObject.CompareTag(ENEMYLVL2_TAG) || collision.gameObject.CompareTag(AIRPORT_TAG) 
-            || collision.gameObject.CompareTag(METALBOX_TAG) || collision.gameObject.CompareTag(ENEMYLVL3_TAG))
+            || collision.gameObject.CompareTag(METALBOX_TAG) || collision.gameObject.CompareTag(ENEMYLVL3_TAG) || collision.gameObject.CompareTag(LIMIT_TAG))
         {
             Destroy(gameObject);
             SceneManager.LoadScene("Death");

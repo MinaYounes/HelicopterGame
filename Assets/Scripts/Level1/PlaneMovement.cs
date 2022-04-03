@@ -109,7 +109,6 @@ public class PlaneMovement : MonoBehaviour
         if (levelThreeCompleted)
         {
             StartCoroutine(WaitThenEnd());
-            SceneManager.LoadScene("LevelSuccess");
         }
     }   
 
@@ -123,7 +122,7 @@ public class PlaneMovement : MonoBehaviour
     // Coroutine will wait 2 seconds then display the end scene
     IEnumerator WaitThenEnd()
     {
-        yield return new WaitForSeconds(1);
+        yield return new WaitForSeconds(2);
         SceneManager.LoadScene("FinishedGame");
     }
 

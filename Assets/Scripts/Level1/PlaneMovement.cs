@@ -83,7 +83,6 @@ public class PlaneMovement : MonoBehaviour
             levelOneProgress++;
             if (levelOneProgress == 12)
             {
-                SceneGetter();
                 levelOneCompleted = true;
             }
         }
@@ -93,7 +92,6 @@ public class PlaneMovement : MonoBehaviour
             levelTwoProgress++;
             if (levelTwoProgress == 23)
             {
-                SceneGetter();
                 levelTwoCompleted = true;
             }
         }
@@ -103,15 +101,20 @@ public class PlaneMovement : MonoBehaviour
             levelThreeProgress++;
             if(levelThreeProgress == 6 && exitTouched)
             {
-                SceneGetter();
                 levelThreeCompleted = true;
             }
         }
-            // if level one completed, calls coroutine to wait 2 sec and then change scenes
-            if (levelOneCompleted || levelTwoCompleted)
-            {
-                StartCoroutine(waitFewSeconds());
-            }
+        // if level one completed, calls coroutine to wait 2 sec and then change scenes
+        if (levelOneCompleted || levelTwoCompleted)
+        {
+            StartCoroutine(WaitFewSeconds());
+        }
+
+        // if level three completed, game is finished
+        if(levelThreeCompleted)
+        {
+            StartCoroutine(WaitThenEnd());
+        }
         
     }
 
@@ -132,10 +135,17 @@ public class PlaneMovement : MonoBehaviour
    
 
     // Coroutine, will wait 2 seconds and change scene to level completed successfully
-    IEnumerator waitFewSeconds()
+    IEnumerator WaitFewSeconds()
     {
         yield return new WaitForSeconds(2);
         SceneManager.LoadScene("LevelSuccess");
+    }
+
+    // Coroutine will wait 2 seconds then display the end scene
+    IEnumerator WaitThenEnd()
+    {
+        yield return new WaitForSeconds(2);
+        SceneManager.LoadScene("FinishedGame");
     }
 
     public void PickedUp()
@@ -148,9 +158,4 @@ public class PlaneMovement : MonoBehaviour
         return guysPickedUp;
     }
 
-    public int SceneGetter()
-    {
-        int currentScene = SceneManager.GetActiveScene().buildIndex;
-        return currentScene;
-    }
 }

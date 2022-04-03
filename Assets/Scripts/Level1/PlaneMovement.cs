@@ -16,7 +16,6 @@ public class PlaneMovement : MonoBehaviour
     private string ENEMYLVL3_TAG = "Enemy3";
     private string AIRPORT_TAG = "Airport";
     private string METALBOX_TAG = "MetalBox";
-    private string EXIT_TAG = "Exit";
     Vector2 movement;
     private bool levelOneCompleted = false;
     private int levelOneProgress = 0;
@@ -112,26 +111,7 @@ public class PlaneMovement : MonoBehaviour
             StartCoroutine(WaitThenEnd());
             SceneManager.LoadScene("LevelSuccess");
         }
-
-
-
-    }
-
-    /*public void levelTwoTracker()
-    {
-        levelTwoProgress++;
-        if (levelTwoProgress == 23)
-        {
-            levelTwoCompleted = true;
-        }
-
-        // if level one completed, calls coroutine to wait 2 sec and then change scenes
-        if (levelTwoCompleted)
-        {
-            StartCoroutine(waitFewSeconds());
-        }
-    } */
-   
+    }   
 
     // Coroutine, will wait 2 seconds and change scene to level completed successfully
     IEnumerator WaitFewSeconds()

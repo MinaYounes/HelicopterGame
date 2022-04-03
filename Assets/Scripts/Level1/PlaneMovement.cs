@@ -83,6 +83,7 @@ public class PlaneMovement : MonoBehaviour
             levelOneProgress++;
             if (levelOneProgress == 12)
             {
+                SceneGetter();
                 levelOneCompleted = true;
             }
         }
@@ -92,6 +93,7 @@ public class PlaneMovement : MonoBehaviour
             levelTwoProgress++;
             if (levelTwoProgress == 23)
             {
+                SceneGetter();
                 levelTwoCompleted = true;
             }
         }
@@ -101,6 +103,7 @@ public class PlaneMovement : MonoBehaviour
             levelThreeProgress++;
             if(levelThreeProgress == 6 && exitTouched)
             {
+                SceneGetter();
                 levelThreeCompleted = true;
             }
         }
@@ -143,5 +146,11 @@ public class PlaneMovement : MonoBehaviour
     public int PickedUpGetter()
     {
         return guysPickedUp;
+    }
+
+    public int SceneGetter()
+    {
+        int currentScene = SceneManager.GetActiveScene().buildIndex;
+        return currentScene;
     }
 }

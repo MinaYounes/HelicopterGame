@@ -13,13 +13,18 @@ public class PlaneMovement : MonoBehaviour
     bool facingRight = true;
     private string ENEMY_TAG = "Enemy";
     private string ENEMYLVL2_TAG = "Enemy2";
+    private string ENEMYLVL3_TAG = "Enemy3";
     private string AIRPORT_TAG = "Airport";
+    private string METALBOX_TAG = "MetalBox";
+    private string LIMIT_TAG = "Limit";
     Vector2 movement;
     private bool levelOneCompleted = false;
     private int levelOneProgress = 0;
-   private bool levelTwoCompleted = false;
+    private bool levelTwoCompleted = false;
     private int levelTwoProgress = 0;
     private int guysPickedUp = 0;
+    private bool levelThreeCompleted = false;
+    private int levelThreeProgress = 0;
 
     void Update()
     {
@@ -53,17 +58,18 @@ public class PlaneMovement : MonoBehaviour
         transform.Rotate(0f, 180f, 0f);
     }
 
-    // if player plane touches an enemy plane or airport, user dies
+    // if player plane touches ground, an enemy plane, airport, metal crates, or exit sign at lvl3
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.CompareTag(ENEMY_TAG) || collision.gameObject.CompareTag(ENEMYLVL2_TAG) || collision.gameObject.CompareTag(AIRPORT_TAG))
+        if (collision.gameObject.CompareTag(ENEMY_TAG)|| collision.gameObject.CompareTag(ENEMYLVL2_TAG) || collision.gameObject.CompareTag(AIRPORT_TAG) 
+            || collision.gameObject.CompareTag(METALBOX_TAG) || collision.gameObject.CompareTag(ENEMYLVL3_TAG) || collision.gameObject.CompareTag(LIMIT_TAG))
         {
             Destroy(gameObject);
             SceneManager.LoadScene("Death");
         }
     }
 
-    // checks if level 1 is completed or not yet
+    // checks if different levels are completed or not yet
     public void LevelTracker(int level)
     {
         if (level == 1)
@@ -83,35 +89,42 @@ public class PlaneMovement : MonoBehaviour
                 levelTwoCompleted = true;
             }
         }
-            // if level one completed, calls coroutine to wait 2 sec and then change scenes
-            if (levelOneCompleted || levelTwoCompleted)
+
+        if(level == 3)
+        {
+            levelThreeProgress++;
+            Debug.Log("progress: " + levelThreeProgress);
+            if(levelThreeProgress == 7)
             {
-                StartCoroutine(waitFewSeconds());
+                levelThreeCompleted = true;
+                Debug.Log("is true progress is 7");
             }
-        
-    }
-
-    /*public void levelTwoTracker()
-    {
-        levelTwoProgress++;
-        if (levelTwoProgress == 23)
+        }
+        // if level one or two completed, calls coroutine to wait 2 sec and then change scenes
+        if (levelOneCompleted || levelTwoCompleted)
         {
-            levelTwoCompleted = true;
+            StartCoroutine(WaitFewSeconds());
         }
 
-        // if level one completed, calls coroutine to wait 2 sec and then change scenes
-        if (levelTwoCompleted)
+         // if level three completed, game is finished
+        if (levelThreeCompleted)
         {
-            StartCoroutine(waitFewSeconds());
+            StartCoroutine(WaitThenEnd());
         }
-    } */
-   
+    }   
 
     // Coroutine, will wait 2 seconds and change scene to level completed successfully
-    IEnumerator waitFewSeconds()
+    IEnumerator WaitFewSeconds()
     {
         yield return new WaitForSeconds(2);
         SceneManager.LoadScene("LevelSuccess");
+    }
+
+    // Coroutine will wait 2 seconds then display the end scene
+    IEnumerator WaitThenEnd()
+    {
+        yield return new WaitForSeconds(2);
+        SceneManager.LoadScene("FinishedGame");
     }
 
     public void PickedUp()
@@ -123,4 +136,5 @@ public class PlaneMovement : MonoBehaviour
     {
         return guysPickedUp;
     }
+
 }

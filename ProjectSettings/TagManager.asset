@@ -14,6 +14,9 @@ TagManager:
   - Guys
   - Enemy2
   - Building
+  - MetalBox
+  - Exit
+  - Enemy3
   layers:
   - Default
   - TransparentFX

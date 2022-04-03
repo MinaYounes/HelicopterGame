@@ -4,7 +4,8 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 public class LevelSuccessController : MonoBehaviour
 {
-    private int SceneTracker = 1;
+    static int SceneTracker = 1;
+
     // clicking store goes to store scene
     public void Store()
     {
@@ -22,5 +23,18 @@ public class LevelSuccessController : MonoBehaviour
     {
         SceneTracker++;
         SceneManager.LoadScene(SceneTracker);
+        
+    }
+
+    public void Restart()
+    {
+        SceneManager.LoadScene(SceneTracker);
+    }
+
+
+    // if main menu pressed at ending scene
+    public void MainMenu()
+    {
+        SceneManager.LoadScene("MainMenu");
     }
 }

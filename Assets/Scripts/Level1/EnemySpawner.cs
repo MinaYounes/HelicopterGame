@@ -45,53 +45,57 @@ public class EnemySpawner : MonoBehaviour
             if (randomSide == 0)
             {
                 spawnedPlane.transform.position = rightTopPos.position;
-                // Speed of spawned plane will be random number between 1 and 2
-                spawnedPlane.GetComponent<EnemyPlane>().speed = -Random.Range(1, 3);
-                // Flips planes coming from the right side
-                spawnedPlane.transform.localScale = new Vector3(-0.1f, 0.1f, 0.1f);
+                PlaneSpawnFromRight();
 
             }
             // Spawn enemy plane in middle right position
             else if (randomSide == 1)
             {
                 spawnedPlane.transform.position = rightMidPos.position;
-                // Speed of spawned plane will be random number between 1 and 2
-                spawnedPlane.GetComponent<EnemyPlane>().speed = -Random.Range(1, 3);
-                // Flips planes coming from the right side
-                spawnedPlane.transform.localScale = new Vector3(-0.1f, 0.1f, 0.1f);
+                PlaneSpawnFromRight();
             }
             // Spawn enemy plane in low right position
             else if (randomSide == 2)
             {
                 spawnedPlane.transform.position = rightBottomPos.position;
-                // Speed of spawned plane will be random number between 1 and 2
-                spawnedPlane.GetComponent<EnemyPlane>().speed = -Random.Range(1, 3);
-                // Flips planes coming from the right side
-                spawnedPlane.transform.localScale = new Vector3(-0.1f, 0.1f, 0.1f);
+                PlaneSpawnFromRight();
             }
             // Spawn enemy plane in top left position
             else if (randomSide == 3)
             {
                 spawnedPlane.transform.position = leftTopPos.position;
-                // Speed of spawned plane will be random number between 1 and 2
-                spawnedPlane.GetComponent<EnemyPlane>().speed = Random.Range(1, 3);
+                PlaneSpawnFromLeft();
             }
             // Spawn enemy plane in middle left position
             else if (randomSide == 4)
             {
                 spawnedPlane.transform.position = leftMidPos.position;
-                // Speed of spawned plane will be random number between 1 and 2
-                spawnedPlane.GetComponent<EnemyPlane>().speed = Random.Range(1, 3);
+                PlaneSpawnFromLeft();
             }
             // Spawn enemy plane in bottom left position
             else
             {
                 spawnedPlane.transform.position = leftBottomPos.position;
-                // Speed of spawned plane will be random number between 1 and 2
-                spawnedPlane.GetComponent<EnemyPlane>().speed = Random.Range(1, 3);
+                PlaneSpawnFromLeft();
             }
             enemyCounter++;
         }
+    }
+
+    // when a plane spawns from right, set speed and direction
+    void PlaneSpawnFromRight()
+    {
+        // Speed of spawned plane will be random number between 1 and 2
+        spawnedPlane.GetComponent<EnemyPlane>().speed = -Random.Range(1, 3);
+        // Flips planes coming from the right side
+        spawnedPlane.transform.localScale = new Vector3(-0.1f, 0.1f, 0.1f);
+    }
+
+    // when a plane spawns from left, set speed 
+    void PlaneSpawnFromLeft()
+    {
+        // Speed of spawned plane will be random number between 1 and 2
+        spawnedPlane.GetComponent<EnemyPlane>().speed = Random.Range(1, 3);
     }
 }
 

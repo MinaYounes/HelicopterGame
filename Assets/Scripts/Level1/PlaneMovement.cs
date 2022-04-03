@@ -15,12 +15,16 @@ public class PlaneMovement : MonoBehaviour
     private string ENEMYLVL2_TAG = "Enemy2";
     private string AIRPORT_TAG = "Airport";
     private string METALBOX_TAG = "MetalBox";
+    private string EXIT_TAG = "Exit";
     Vector2 movement;
     private bool levelOneCompleted = false;
     private int levelOneProgress = 0;
-   private bool levelTwoCompleted = false;
+    private bool levelTwoCompleted = false;
     private int levelTwoProgress = 0;
     private int guysPickedUp = 0;
+    private bool levelThreeCompleted = false;
+    private bool exitTouched = false;
+    private int levelThreeProgress = 0;
 
     void Update()
     {
@@ -54,7 +58,7 @@ public class PlaneMovement : MonoBehaviour
         transform.Rotate(0f, 180f, 0f);
     }
 
-    // if player plane touches an enemy plane, airport, or metal crates
+    // if player plane touches an enemy plane, airport, metal crates, or exit sign at lvl3
     private void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.gameObject.CompareTag(ENEMY_TAG)|| collision.gameObject.CompareTag(ENEMYLVL2_TAG) || collision.gameObject.CompareTag(AIRPORT_TAG) 
@@ -63,9 +67,15 @@ public class PlaneMovement : MonoBehaviour
             Destroy(gameObject);
             SceneManager.LoadScene("Death");
         }
+
+        if(collision.gameObject.CompareTag(EXIT_TAG))
+        {
+            exitTouched = true;
+        }
+
     }
 
-    // checks if level 1 is completed or not yet
+    // checks if different levels are completed or not yet
     public void LevelTracker(int level)
     {
         if (level == 1)
@@ -83,6 +93,15 @@ public class PlaneMovement : MonoBehaviour
             if (levelTwoProgress == 23)
             {
                 levelTwoCompleted = true;
+            }
+        }
+
+        if(level == 3)
+        {
+            levelThreeProgress++;
+            if(levelThreeProgress == 6 && exitTouched)
+            {
+                levelThreeCompleted = true;
             }
         }
             // if level one completed, calls coroutine to wait 2 sec and then change scenes

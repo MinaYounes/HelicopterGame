@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Airport : MonoBehaviour
 {
-    private int health = 100;
+    private int health = 200;
     PlaneMovement plane;
     GameObject findPlane;
     public GameObject Explosion;
@@ -14,9 +14,9 @@ public class Airport : MonoBehaviour
     }
 
     // method will decrease health if touched by bullet
-    public void DecreaseHealth()
+    public void DecreaseHealth(int damage)
     {
-        health -= 10;
+        health -= damage;
 
         // if health is 0, destroy the plane
         if (health <= 0)

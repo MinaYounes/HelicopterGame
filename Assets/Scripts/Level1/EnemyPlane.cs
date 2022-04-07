@@ -58,9 +58,9 @@ public class EnemyPlane : MonoBehaviour
     }
 
     // method will decrease health if touched by bullet
-    public void DecreaseHealth(int level)
+    public void DecreaseHealth(int level, int damage)
     {
-        health -= 20;
+        health -= damage;
 
         // if health is 0, destroy the plane
         if(health <= 0)

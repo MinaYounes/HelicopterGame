@@ -8,11 +8,14 @@ public class CoinCount : MonoBehaviour
 	
     public static int coins;
     public Text coinText;
+    public Text notEnoughCoins;
+    public Text noCoins;
  
     // Start is called before the first frame update
     void Start()
     {
 	    coinText.text = coins.ToString();
+        //notEnoughCoins = GameObject.Find("NotEnough").GetComponent<Text>();
     }
 
     // Update is called once per frame
@@ -31,12 +34,24 @@ public class CoinCount : MonoBehaviour
     {
         if(coins - coinsToSubtract < 0)
 	    {
-	        //Debug.Log("Not Enough Money");
-	    }
+            notEnoughCoins = GameObject.Find("NotEnough").GetComponent<Text>();
+            notEnoughCoins.text = "Not Enough Coins!";
+            StartCoroutine(StartCount());
+            
+
+        }
 	    else
         {
 	        coins -= coinsToSubtract;
 	        coinText.text = coins.ToString();
 	    }
+    }
+
+    IEnumerator StartCount()
+    {
+        yield return new WaitForSeconds(1f);
+       
+        notEnoughCoins = GameObject.Find("NotEnough").GetComponent<Text>();
+        notEnoughCoins.text = "";
     }
 }

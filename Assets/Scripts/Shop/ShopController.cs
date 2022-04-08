@@ -28,8 +28,9 @@ public class ShopController : MonoBehaviour
         CheckCoins();
 
         Bullet.IncreaseSpeed();
-        DisableButton("missileSpeedButton");
+        //DisableButton("missileSpeedButton");
         
+
         
     }
 
@@ -38,7 +39,7 @@ public class ShopController : MonoBehaviour
         CheckCoins();
 
         Bullet.IncreaseDamage();
-        DisableButton("missileDamageButton");
+       // DisableButton("missileDamageButton");
         
     }
 
@@ -47,7 +48,7 @@ public class ShopController : MonoBehaviour
         CheckCoins();
 
         Bullet2.IncreaseDamage();
-        DisableButton("subsonicSpeedButton");
+        //DisableButton("subsonicSpeedButton");
     }
 
     public void SubsonicDamage()
@@ -55,7 +56,7 @@ public class ShopController : MonoBehaviour
         CheckCoins();
  
         Bullet2.IncreaseDamage();
-        DisableButton("subsonicDamageButton");
+       // DisableButton("subsonicDamageButton");
     }
 
     public void Mach8Speed()
@@ -63,7 +64,7 @@ public class ShopController : MonoBehaviour
         CheckCoins();
         
         Bullet3.IncreaseDamage();
-        DisableButton("mach8SpeedButton");
+       // DisableButton("mach8SpeedButton");
         
     }
 
@@ -72,7 +73,7 @@ public class ShopController : MonoBehaviour
         CheckCoins();
 
         Bullet3.IncreaseDamage();
-        DisableButton("mach8DamageButton");
+        //DisableButton("mach8DamageButton");
 
     }
 

@@ -6,8 +6,8 @@ using UnityEngine.SceneManagement;
  
 public class Timer : MonoBehaviour
 {
-    // 1:30 minutes
-    private float timeDuration = 1.5f * 60f;
+    // 1:15 minutes
+    private float timeDuration = 1.25f * 60f;
 
     private float timer;
     [SerializeField]

@@ -57,7 +57,7 @@ public class ShopController : MonoBehaviour
     // if back button clicked
     public void GoBack()
     {
-        CoinCount.coins = coins;
+        coins = CoinCount.coins;
 	    SceneManager.LoadScene("LevelSuccess");
     }
 

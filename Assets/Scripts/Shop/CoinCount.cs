@@ -21,7 +21,7 @@ public class CoinCount : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+ 
     }
 
     // adds coin to players wallet

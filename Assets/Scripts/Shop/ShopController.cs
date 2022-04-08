@@ -12,37 +12,57 @@ public class ShopController : MonoBehaviour
     
     void Start()
     {
-	CoinCount.coins = coins;
+	    CoinCount.coins = coins;
     }
 
-    public void goBack()
+    // if back button clicked
+    public void GoBack()
     {
-	SceneManager.LoadScene("LevelSuccess");
+	    SceneManager.LoadScene("LevelSuccess");
     }
 
-    public void weaponOne()
+    public void MissileSpeed()
     {
-        upgradeCost = 20;
-
-	cam.GetComponent<CoinCount>().SubtractCoins(upgradeCost);
-	//upgrade ship
-
+        CheckCoins();
+        Bullet.IncreaseSpeed();
     }
 
-    public void weaponTwo()
+    public void MissileDamage()
     {
-	upgradeCost = 30;
-	
-	cam.GetComponent<CoinCount>().SubtractCoins(upgradeCost);
-	//upgrade ship
-
+        CheckCoins();
+        Bullet.IncreaseDamage();
     }
 
-    public void weaponThree()
+    public void SubsonicSpeed()
     {
-	upgradeCost = 30;
+        CheckCoins();
+        Bullet2.IncreaseDamage();
+    }
 
-	cam.GetComponent<CoinCount>().SubtractCoins(upgradeCost);
-	//upgrade ship
+    public void SubsonicDamage()
+    {
+        CheckCoins();
+        Bullet2.IncreaseDamage();
+    }
+
+    public void Mach8Speed()
+    {
+        CheckCoins();
+        Bullet3.IncreaseDamage();
+    }
+
+    public void Mach8Damage()
+    {
+        CheckCoins();
+        Bullet3.IncreaseDamage();
+    }
+
+    private void CheckCoins()
+    {
+        upgradeCost = 30;
+        if(cam.GetComponent<CoinCount>().SubtractCoins(upgradeCost) != 1)
+        {
+            return;
+        }
     }
 }

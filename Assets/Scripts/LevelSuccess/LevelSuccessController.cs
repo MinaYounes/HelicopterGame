@@ -7,10 +7,10 @@ public class LevelSuccessController : MonoBehaviour
 
     static int SceneTracker = 1;
 
-    public void Start()
+   /* public void GoBack()
     {
-	
-    }
+        SceneManager.LoadScene("LevelSuccess");
+    } */
 
     // clicking store goes to store scene
     public void Store()

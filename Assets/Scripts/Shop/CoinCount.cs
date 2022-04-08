@@ -12,7 +12,7 @@ public class CoinCount : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-	coinText.text = coins.ToString();
+	    coinText.text = coins.ToString();
     }
 
     // Update is called once per frame
@@ -24,18 +24,21 @@ public class CoinCount : MonoBehaviour
     public void AddCoins(int coinsToAdd)
     {
         coins += coinsToAdd;
-	coinText.text = coins.ToString();
+	    coinText.text = coins.ToString();
     }
 
-    public void SubtractCoins(int coinsToSubtract)
+    public int SubtractCoins(int coinsToSubtract)
     {
         if(coins - coinsToSubtract < 0)
-	{
-	    Debug.Log("Not Enough Money");
-	}
-	else{
-	    coins -= coinsToSubtract;
-	    coinText.text = coins.ToString();
-	}
+	    {
+	        Debug.Log("Not Enough Money");
+            return 0;
+	    }
+	    else
+        {
+	        coins -= coinsToSubtract;
+	        coinText.text = coins.ToString();
+            return 1;
+	    }
     }
 }

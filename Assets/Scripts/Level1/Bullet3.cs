@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Bullet3 : MonoBehaviour
 {
-    public float speed = 8f;
+    public static float speed = 8f;
     public static int damage = 10;
     public Rigidbody2D rb;
     private string AIRPORT_TAG = "Airport";
@@ -53,6 +53,16 @@ public class Bullet3 : MonoBehaviour
             // decrease health of airport if touched by bullet
             other.GetComponent<Airport>().DecreaseHealth(damage);
         }
+    }
+
+    public static void IncreaseDamage()
+    {
+        damage = 20;
+    }
+
+    public static void IncreaseSpeed()
+    {
+        speed = 9f;
     }
 
     //Code destroys enemies or whatever touches bullet

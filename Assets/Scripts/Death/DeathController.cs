@@ -9,7 +9,7 @@ public class DeathController : MonoBehaviour
 
     public void Restart()
     {
-	SceneManager.LoadScene(SceneTracker);
+	    SceneManager.LoadScene(SceneTracker);
     }
 
 }

@@ -558,7 +558,7 @@ GameObject:
   - component: {fileID: 367567402}
   - component: {fileID: 367567401}
   m_Layer: 5
-  m_Name: 'mach8DamageButton '
+  m_Name: mach8DamageButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1439,7 +1439,7 @@ GameObject:
   - component: {fileID: 898642165}
   - component: {fileID: 898642164}
   m_Layer: 5
-  m_Name: 'subsonicDamageButton '
+  m_Name: subsonicDamageButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2113,7 +2113,7 @@ GameObject:
   - component: {fileID: 1361642047}
   - component: {fileID: 1361642046}
   m_Layer: 5
-  m_Name: 'mach8SpeedButton  '
+  m_Name: mach8SpeedButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3472,7 +3472,7 @@ GameObject:
   - component: {fileID: 1800865584}
   - component: {fileID: 1800865583}
   m_Layer: 5
-  m_Name: 'subsonicSpeedButton '
+  m_Name: subsonicSpeedButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

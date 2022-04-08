@@ -8,8 +8,15 @@ public class MainMenuController : MonoBehaviour
     // clicking new game goes to level 1 game scene
     public void PlayGame()
     {
-	ShopController.coins = 0;
-	DeathController.SceneTracker =1;
+        if(ReadInput.emailEntered == true)
+        {
+            ShopController.coins += 100;
+        }
+	    else
+        {
+            ShopController.coins = 0;
+        }
+	    DeathController.SceneTracker = 1;
         SceneManager.LoadScene("Level1");
     }
 

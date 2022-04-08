@@ -117,7 +117,7 @@ public class PlaneMovement : MonoBehaviour
     IEnumerator WaitFewSeconds()
     {
         yield return new WaitForSeconds(2);
-	ShopController.coins += 100;
+	    ShopController.coins += 100;
         SceneManager.LoadScene("LevelSuccess");
     }
 

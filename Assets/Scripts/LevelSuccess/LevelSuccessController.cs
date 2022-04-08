@@ -27,8 +27,8 @@ public class LevelSuccessController : MonoBehaviour
     // clicking next level goes to the next level
     public void NextLevel()
     {
-	DeathController.SceneTracker +=1;
-	SceneTracker++;
+	    DeathController.SceneTracker +=1;
+	    SceneTracker++;
         SceneManager.LoadScene(SceneTracker);
         
     }
@@ -37,5 +37,6 @@ public class LevelSuccessController : MonoBehaviour
     public void MainMenu()
     {
         SceneManager.LoadScene("MainMenu");
+        ShopController.coins = 0;
     }
 }

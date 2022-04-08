@@ -5,10 +5,11 @@ using UnityEngine;
 public class ReadInput : MonoBehaviour
 {
     private string input;
-    // Start is called before the first frame update
+    public static bool emailEntered = false;
+ 
     void Start()
     {
-        
+  
     }
 
     // Update is called once per frame
@@ -20,6 +21,8 @@ public class ReadInput : MonoBehaviour
     // take user email input
     public void ReadString(string text)
     {
-        this.input = text;
+        input = text;
+        emailEntered = true;
+        Debug.Log("email: " + input);
     }
 }

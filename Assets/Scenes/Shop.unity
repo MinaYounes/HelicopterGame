@@ -688,8 +688,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 693.49, y: 282.46}
-  m_SizeDelta: {x: 295.2125, y: 84.6638}
+  m_AnchoredPosition: {x: 712.81494, y: 282.46}
+  m_SizeDelta: {x: 333.8626, y: 84.6638}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &380786445
 MonoBehaviour:
@@ -724,7 +724,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Mach 8
+  m_Text: Mach 8 (h)
 --- !u!222 &380786446
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1046,8 +1046,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 62.437, y: 282.46}
-  m_SizeDelta: {x: 295.2125, y: 84.6638}
+  m_AnchoredPosition: {x: 107.12608, y: 282.46}
+  m_SizeDelta: {x: 384.5907, y: 84.6638}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &737149822
 MonoBehaviour:
@@ -1082,7 +1082,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Subsonic
+  m_Text: Subsonic (g)
 --- !u!222 &737149823
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -3574,8 +3574,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -646, y: 282.46}
-  m_SizeDelta: {x: 214.1228, y: 84.6638}
+  m_AnchoredPosition: {x: -574.38934, y: 282.46}
+  m_SizeDelta: {x: 357.3413, y: 84.6638}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2064394857
 MonoBehaviour:
@@ -3610,7 +3610,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Missile
+  m_Text: Missile (f)
 --- !u!222 &2064394858
 CanvasRenderer:
   m_ObjectHideFlags: 0

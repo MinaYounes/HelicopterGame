@@ -21,13 +21,13 @@ public class CoinCount : MonoBehaviour
         
     }
 
-    public void addCoins(int coinsToAdd)
+    public void AddCoins(int coinsToAdd)
     {
         coins += coinsToAdd;
 	coinText.text = coins.ToString();
     }
 
-    public void subtractCoins(int coinsToSubtract)
+    public void SubtractCoins(int coinsToSubtract)
     {
         if(coins - coinsToSubtract < 0)
 	{

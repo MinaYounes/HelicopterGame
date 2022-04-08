@@ -24,7 +24,7 @@ public class ShopController : MonoBehaviour
     {
         upgradeCost = 20;
 
-	cam.GetComponent<CoinCount>().subtractCoins(upgradeCost);
+	cam.GetComponent<CoinCount>().SubtractCoins(upgradeCost);
 	//upgrade ship
 
     }
@@ -33,7 +33,7 @@ public class ShopController : MonoBehaviour
     {
 	upgradeCost = 30;
 	
-	cam.GetComponent<CoinCount>().subtractCoins(upgradeCost);
+	cam.GetComponent<CoinCount>().SubtractCoins(upgradeCost);
 	//upgrade ship
 
     }
@@ -42,7 +42,7 @@ public class ShopController : MonoBehaviour
     {
 	upgradeCost = 30;
 
-	cam.GetComponent<CoinCount>().subtractCoins(upgradeCost);
+	cam.GetComponent<CoinCount>().SubtractCoins(upgradeCost);
 	//upgrade ship
     }
 }

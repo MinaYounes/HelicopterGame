@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Bullet : MonoBehaviour
 {
-    public float speed = 7f;
+    public float speed = 6f;
     public static int damage = 20;
     public Rigidbody2D rb;
     private string AIRPORT_TAG = "Airport";

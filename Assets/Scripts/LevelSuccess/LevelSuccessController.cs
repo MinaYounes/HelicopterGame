@@ -29,6 +29,7 @@ public class LevelSuccessController : MonoBehaviour
     {
 	    DeathController.SceneTracker +=1;
 	    SceneTracker++;
+        EnemyPlane.level++;
         SceneManager.LoadScene(SceneTracker);
         
     }

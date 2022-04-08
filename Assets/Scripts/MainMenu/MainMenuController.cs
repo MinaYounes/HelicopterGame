@@ -8,6 +8,7 @@ public class MainMenuController : MonoBehaviour
     // clicking new game goes to level 1 game scene
     public void PlayGame()
     {
+        EnemyPlane.level = 1;
         if(ReadInput.emailEntered == true)
         {
             ShopController.coins += 100;

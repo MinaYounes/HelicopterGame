@@ -863,6 +863,18 @@ PrefabInstance:
       propertyPath: m_Name
       value: Collector Holder
       objectReference: {fileID: 0}
+    - target: {fileID: 6845502241855607565, guid: 26c97b8646660db4891d98033ea454a7, type: 3}
+      propertyPath: m_IsTrigger
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6845502242504130008, guid: 26c97b8646660db4891d98033ea454a7, type: 3}
+      propertyPath: m_IsTrigger
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6845502243280168798, guid: 26c97b8646660db4891d98033ea454a7, type: 3}
+      propertyPath: m_IsTrigger
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 26c97b8646660db4891d98033ea454a7, type: 3}
 --- !u!1001 &7177562623985887214

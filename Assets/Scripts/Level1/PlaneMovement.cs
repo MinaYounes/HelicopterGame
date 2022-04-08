@@ -19,7 +19,7 @@ public class PlaneMovement : MonoBehaviour
     private string LIMIT_TAG = "Limit";
     Vector2 movement;
     private bool levelOneCompleted = false;
-    private int levelOneProgress = 0;
+    public int levelOneProgress = 0;
     private bool levelTwoCompleted = false;
     private int levelTwoProgress = 0;
     private int guysPickedUp = 0;
@@ -68,48 +68,53 @@ public class PlaneMovement : MonoBehaviour
             SceneManager.LoadScene("Death");
         }
     }
-
+    
     // checks if different levels are completed or not yet
     public void LevelTracker(int level)
     {
         if (level == 1)
         {
             levelOneProgress++;
+            Debug.Log("PLNMVTprogress LVl1: " + levelOneProgress + " /12");
             if (levelOneProgress == 12)
             {
                 levelOneCompleted = true;
             }
         }
 
-        if(level == 2)
+        else if(level == 2)
         {
             levelTwoProgress++;
+            Debug.Log("progress LVL2: " + levelTwoProgress + " /23");
             if (levelTwoProgress == 23)
             {
                 levelTwoCompleted = true;
             }
         }
 
-        if(level == 3)
+        else if(level == 3)
         {
             levelThreeProgress++;
-            Debug.Log("progress: " + levelThreeProgress);
+            Debug.Log("progress LVl3: " + levelThreeProgress + " /7");
             if(levelThreeProgress == 7)
             {
                 levelThreeCompleted = true;
-                Debug.Log("is true progress is 7");
             }
         }
         // if level one or two completed, calls coroutine to wait 2 sec and then change scenes
         if (levelOneCompleted || levelTwoCompleted)
         {
+            Debug.Log("LEveloneCompleted || level2Completed");
             StartCoroutine(WaitFewSeconds());
+            
         }
 
          // if level three completed, game is finished
         if (levelThreeCompleted)
         {
+            Debug.Log("Level3completed");
             StartCoroutine(WaitThenEnd());
+            
         }
     }   
 
@@ -127,6 +132,7 @@ public class PlaneMovement : MonoBehaviour
         yield return new WaitForSeconds(2);
         SceneManager.LoadScene("FinishedGame");
     }
+    
 
     public void PickedUp()
     {

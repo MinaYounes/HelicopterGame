@@ -15,12 +15,15 @@ public class EnemyPlane : MonoBehaviour
     private string BUILDING_TAG = "Building";
     private string GUYS_TAG = "Guys";
     private string METALBOX_TAG = "MetalBox";
+    private string BULLET_TAG = "Bullet";
 
     private SpriteRenderer sr;
     private int health = 100;
     PlaneMovement plane;
     GameObject findPlane;
     public GameObject Explosion;
+    public static int level = 1;
+ 
     
 
 
@@ -30,6 +33,13 @@ public class EnemyPlane : MonoBehaviour
         sr = GetComponent<SpriteRenderer>();
         findPlane = GameObject.FindGameObjectWithTag(PLAYER_TAG);
 
+    }
+    private void Update()
+    {
+        if(health <= 0)
+        {
+            DecreaseHealth(level);
+        }
     }
     // In case of collision
     private void OnCollisionEnter2D(Collision2D collision)
@@ -44,49 +54,84 @@ public class EnemyPlane : MonoBehaviour
             speed = -speed;
         }
 
+        if(collision.gameObject.tag == "Bullet")
+        {
+            Debug.Log("daddy");
+        }
         // if enemy plane touches one of the guys to rescue, level failed
         if(collision.gameObject.CompareTag(GUYS_TAG))
         {
             SceneManager.LoadScene("Death");
         }
+
     }
+
+      private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.CompareTag("Bullet"))
+        {
+      
+            //DecreaseHealth(level); //Bullet.damage);
+            health -= Bullet.damage;
+        }
+        else if (collision.gameObject.CompareTag("Bullet2"))
+        {
+            //DecreaseHealth(level); //Bullet2.damage);
+            health -= Bullet2.damage;
+        }
+        else if (collision.gameObject.CompareTag("Bullet3"))
+        {
+            //DecreaseHealth(level);//Bullet3.damage);
+            health -= Bullet3.damage;
+        }
+    } 
 
     void FixedUpdate()
     {
         // Makes enemy planes move on X axis while staying on same Y point
         rb.velocity = new Vector2(speed, rb.velocity.y);
     }
+   
 
-    // method will decrease health if touched by bullet
-    public void DecreaseHealth(int level, int damage)
+
+        // method will decrease health if touched by bullet
+    public void DecreaseHealth(int level) //int damage)
     {
-        health -= damage;
+       // health -= damage;
 
         // if health is 0, destroy the plane
-        if(health <= 0)
-        {
+       // if (health <= 0)
+       // {
             ExplodeAndDestroy();
             if (level == 1)
             {
+                //PlaneMovement.levelOneProgress++;
+                //Debug.Log("enemypln lvltracker: " + PlaneMovement.levelOneProgress + " /12");
+               // findPlane = GameObject.FindGameObjectWithTag(PLAYER_TAG);
+                plane = findPlane.GetComponent<PlaneMovement>();
                 plane.LevelTracker(1);
+
+
+                //Debug.Log("enmyplne, leveloneprog: " + PlaneMovement.levelOneProgress);
             }
 
-            if(level == 2)
+            else if (level == 2)
             {
                 plane.LevelTracker(2);
             }
 
-            if(level == 3)
+            else if (level == 3)
             {
                 plane.LevelTracker(3);
             }
-        }
+       // }
     }
+    
 
     // function will make an explosion effect and destroy the object
     void ExplodeAndDestroy()
     {
-        plane = findPlane.GetComponent<PlaneMovement>();
+        //plane = findPlane.GetComponent<PlaneMovement>();
         Instantiate(Explosion, transform.position, Quaternion.identity);
         Destroy(gameObject);
     }

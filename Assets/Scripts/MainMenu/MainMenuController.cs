@@ -9,7 +9,17 @@ public class MainMenuController : MonoBehaviour
     public void PlayGame()
     {
         EnemyPlane.level = 1;
-        if(ReadInput.emailEntered == true)
+
+        Bullet.speed = 6f;
+        Bullet.damage = 20;
+
+        Bullet2.speed = 4.5f;
+        Bullet2.damage = 30;
+
+        Bullet3.speed = 8f;
+        Bullet3.damage = 10;
+
+        if (ReadInput.emailEntered == true)
         {
             ShopController.coins += 100;
         }

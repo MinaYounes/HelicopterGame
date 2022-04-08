@@ -33,11 +33,13 @@ public class Bullet3 : MonoBehaviour
         }
     }
 
+    // will increase the damage of this bullet to 20
     public static void IncreaseDamage()
     {
         damage = 20;
     }
 
+    // will increase the speed of this bullet to 9
     public static void IncreaseSpeed()
     {
         speed = 9f;

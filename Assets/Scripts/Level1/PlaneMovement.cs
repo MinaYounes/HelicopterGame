@@ -74,8 +74,10 @@ public class PlaneMovement : MonoBehaviour
     {
         if (level == 1)
         {
+            // increase progress tracker of level 1
             levelOneProgress++;
-            Debug.Log("PLNMVTprogress LVl1: " + levelOneProgress + " /12");
+            
+            // if 12 tasks completed, level one is completed
             if (levelOneProgress == 12)
             {
                 levelOneCompleted = true;
@@ -84,8 +86,10 @@ public class PlaneMovement : MonoBehaviour
 
         else if(level == 2)
         {
+            // increase progress tracker of level 2
             levelTwoProgress++;
-            Debug.Log("progress LVL2: " + levelTwoProgress + " /23");
+
+            // if 23 tasks completed, level two is completed
             if (levelTwoProgress == 23)
             {
                 levelTwoCompleted = true;
@@ -94,9 +98,11 @@ public class PlaneMovement : MonoBehaviour
 
         else if(level == 3)
         {
+            // increase progress tracker of level 3
             levelThreeProgress++;
-            Debug.Log("progress LVl3: " + levelThreeProgress + " /7");
-            if(levelThreeProgress == 7)
+
+            // if 7 tasks completed, level three is completed
+            if (levelThreeProgress == 7)
             {
                 levelThreeCompleted = true;
             }
@@ -104,17 +110,13 @@ public class PlaneMovement : MonoBehaviour
         // if level one or two completed, calls coroutine to wait 2 sec and then change scenes
         if (levelOneCompleted || levelTwoCompleted)
         {
-            Debug.Log("LEveloneCompleted || level2Completed");
-            StartCoroutine(WaitFewSeconds());
-            
+            StartCoroutine(WaitFewSeconds()); 
         }
 
          // if level three completed, game is finished
         if (levelThreeCompleted)
         {
-            Debug.Log("Level3completed");
             StartCoroutine(WaitThenEnd());
-            
         }
     }   
 
@@ -134,11 +136,13 @@ public class PlaneMovement : MonoBehaviour
     }
     
 
+    // increases number of guys rescued
     public void PickedUp()
     {
         guysPickedUp++;
     }
 
+    // returns number of guys picked up
     public int PickedUpGetter()
     {
         return guysPickedUp;

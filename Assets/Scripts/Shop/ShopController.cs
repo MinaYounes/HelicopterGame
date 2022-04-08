@@ -14,73 +14,95 @@ public class ShopController : MonoBehaviour
     
     void Start()
     {
-	    CoinCount.coins = coins;        
+	    CoinCount.coins = coins;    
+    }
+    private void Update()
+    {
+        Debug.Log("missileSpeed: " + Bullet.speed);
+        Debug.Log("missileDmage: " + Bullet.damage);
+
+        Debug.Log("2spped: " + Bullet2.speed);
+        Debug.Log("2speed: " + Bullet2.damage);
+
+        Debug.Log("3speed: " + Bullet3.speed);
+        Debug.Log("3speed: " + Bullet3.damage);
+
+        // keep buttons disabled if they were bought 
+        if (Bullet.speed == 7f)
+        {
+            DisableButton("missileSpeedButton");
+        }
+        if(Bullet.damage == 30)
+        {
+            DisableButton("missileDamageButton");
+        }
+        if (Bullet2.speed == 5f)
+        {
+            DisableButton("subsonicSpeedButton");
+        }
+        if (Bullet2.damage == 40)
+        {
+            DisableButton("subsonicDamageButton");
+        }
+        if (Bullet3.speed == 9f)
+        {
+            DisableButton("mach8SpeedButton");
+        }
+        if (Bullet3.damage == 20)
+        {
+            DisableButton("mach8DamageButton");
+        }
     }
 
     // if back button clicked
     public void GoBack()
     {
+        CoinCount.coins = coins;
 	    SceneManager.LoadScene("LevelSuccess");
     }
 
     public void MissileSpeed()
     {
-        CheckCoins();
-
-        Bullet.IncreaseSpeed();
-        //DisableButton("missileSpeedButton");
-        
-
-        
+        // checks if could upgrade speed of bullet1
+        CheckCoins("1s");
     }
 
     public void MissileDamage()
     {
-        CheckCoins();
-
-        Bullet.IncreaseDamage();
-       // DisableButton("missileDamageButton");
-        
+        // checks if could upgrade damage of bullet2
+        CheckCoins("1d");
     }
 
     public void SubsonicSpeed()
     {
-        CheckCoins();
-
-        Bullet2.IncreaseDamage();
-        //DisableButton("subsonicSpeedButton");
+        // checks if could upgrade speed of bullet2
+        CheckCoins("2s");
     }
 
     public void SubsonicDamage()
     {
-        CheckCoins();
- 
-        Bullet2.IncreaseDamage();
-       // DisableButton("subsonicDamageButton");
+        // checks if could upgrade damage of bullet3
+        CheckCoins("2d");
     }
 
     public void Mach8Speed()
     {
-        CheckCoins();
-        
-        Bullet3.IncreaseDamage();
-       // DisableButton("mach8SpeedButton");
-        
+        // checks if could upgrade speed of bullet3
+        CheckCoins("3s");        
     }
 
     public void Mach8Damage()
     {
-        CheckCoins();
-
-        Bullet3.IncreaseDamage();
-        //DisableButton("mach8DamageButton");
-
+        // checks if could upgrade damage of bullet3
+        CheckCoins("3d");
     }
 
-    private void CheckCoins()
+    // checks if could upgrade or not
+    private void CheckCoins(string component)
     {
         upgradeCost = 30;
-        cam.GetComponent<CoinCount>().SubtractCoins(upgradeCost);
+        cam.GetComponent<CoinCount>().SubtractCoins(upgradeCost, component);
+  
     }
 
     // makes button unclickable

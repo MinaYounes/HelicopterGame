@@ -21,37 +21,15 @@ public class Bullet2 : MonoBehaviour
         rb.velocity = transform.right * speed;
     }
 
-    // Destroy bullets when they collide with enemy planes or airports
+    // Destroy bullets when they collide with items
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        GameObject other = collision.gameObject;
-        // if bullet touches enemy plane or metal crate destroy it
+        // if bullet touches enemy plane, metal crate, or airport destroy it
         if (collision.gameObject.CompareTag(ENEMY_TAG) || collision.gameObject.CompareTag(ENEMYLVL2_TAG) || collision.gameObject.CompareTag(METALBOX_TAG)
-            || collision.gameObject.CompareTag(ENEMYLVL3_TAG))
+            || collision.gameObject.CompareTag(ENEMYLVL3_TAG) || collision.gameObject.CompareTag(AIRPORT_TAG))
         {
-            // destroy bullet if touches enemy plane
+            // destroy bullet
             Destroy(gameObject);
-            // decrease health of enemy plane if touched by bullet
-        /*    if (collision.gameObject.CompareTag(ENEMY_TAG))
-            {
-                other.GetComponent<EnemyPlane>().DecreaseHealth(1, damage);
-            }
-            else if (collision.gameObject.CompareTag(ENEMYLVL2_TAG))
-            {
-                other.GetComponent<EnemyPlane>().DecreaseHealth(2, damage);
-            }
-            else if (collision.gameObject.CompareTag(ENEMYLVL3_TAG))
-            {
-                other.GetComponent<EnemyPlane>().DecreaseHealth(3, damage);
-            } */
-        }
-        // if bullet touches airport
-        if (collision.gameObject.CompareTag(AIRPORT_TAG))
-        {
-            // destroy bullet if touches airport
-            Destroy(gameObject);
-            // decrease health of airport if touched by bullet
-            other.GetComponent<Airport>().DecreaseHealth(damage);
         }
     }
 
@@ -64,11 +42,4 @@ public class Bullet2 : MonoBehaviour
     {
         speed = 5f;
     }
-
-    //Code destroys enemies or whatever touches bullet
-    /*
-     private void OnTriggerEnter2D(Collider2D collision)
-     {
-         Destroy(collision.gameObject);
-     }*/
 }

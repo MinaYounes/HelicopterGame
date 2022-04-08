@@ -4,41 +4,58 @@ using UnityEngine;
 
 public class Airport : MonoBehaviour
 {
-    private int health = 500;
+    private int health = 800;
     PlaneMovement plane;
     GameObject findPlane;
     public GameObject Explosion;
-    private static bool mutex = false;
     private void Awake()
     {
-        //findPlane = GameObject.FindGameObjectWithTag("Player");
+        findPlane = GameObject.FindGameObjectWithTag("Player");
     }
 
- 
 
-
-        // method will decrease health if touched by bullet
-    public void DecreaseHealth(int damage)
+    private void Update()
     {
-        health -= damage;
-
-        // if health is 0, destroy the plane
-        if (health <= 0 && !mutex)
+        if (health <= 0)
         {
-            mutex = true;
-
-            //PlaneMovement.levelOneProgress++;
-            //Debug.Log("airport lvltracker: " + PlaneMovement.levelOneProgress + " /12");
-            findPlane = GameObject.FindGameObjectWithTag("Player");
-            plane = findPlane.GetComponent<PlaneMovement>();
-                plane.LevelTracker(1);
-            mutex = false;
-
-
-                //Debug.Log("airplmn, leveloneprog: " + PlaneMovement.levelOneProgress);
-            Instantiate(Explosion, transform.position, Quaternion.identity);
-            Destroy(gameObject);
-            }
+            DecreaseHealth();
         }
+    }
+
+
+
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.CompareTag("Bullet"))
+        {
+
+            //DecreaseHealth(level); //Bullet.damage);
+            health -= Bullet.damage;
+        }
+        else if (collision.gameObject.CompareTag("Bullet2"))
+        {
+            //DecreaseHealth(level); //Bullet2.damage);
+            health -= Bullet2.damage;
+        }
+        else if (collision.gameObject.CompareTag("Bullet3"))
+        {
+            //DecreaseHealth(level);//Bullet3.damage);
+            health -= Bullet3.damage;
+        }
+    }
+
+
+
+
+    // method will decrease health if touched by bullet
+    public void DecreaseHealth()
+    {
+        plane = findPlane.GetComponent<PlaneMovement>();
+        plane.LevelTracker(1);
+ 
+        Instantiate(Explosion, transform.position, Quaternion.identity);
+        Destroy(gameObject);
+    }
     
 }

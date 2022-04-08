@@ -16,17 +16,17 @@ public class EnemyPlane : MonoBehaviour
     private string GUYS_TAG = "Guys";
     private string METALBOX_TAG = "MetalBox";
     private string BULLET_TAG = "Bullet";
+    private string BULLET2_TAG = "Bullet2";
+    private string BULLET3_TAG = "Bullet3";
 
     private SpriteRenderer sr;
-    private int health = 100;
+    private int health = 200;
     PlaneMovement plane;
     GameObject findPlane;
     public GameObject Explosion;
     public static int level = 1;
  
     
-
-
     void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -54,10 +54,6 @@ public class EnemyPlane : MonoBehaviour
             speed = -speed;
         }
 
-        if(collision.gameObject.tag == "Bullet")
-        {
-            Debug.Log("daddy");
-        }
         // if enemy plane touches one of the guys to rescue, level failed
         if(collision.gameObject.CompareTag(GUYS_TAG))
         {
@@ -66,20 +62,20 @@ public class EnemyPlane : MonoBehaviour
 
     }
 
-      private void OnTriggerEnter2D(Collider2D collision)
+    private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.CompareTag("Bullet"))
+        Debug.Log("lvl variable: " + level);
+        if (collision.gameObject.CompareTag(BULLET_TAG))
         {
-      
             //DecreaseHealth(level); //Bullet.damage);
             health -= Bullet.damage;
         }
-        else if (collision.gameObject.CompareTag("Bullet2"))
+        else if (collision.gameObject.CompareTag(BULLET2_TAG))
         {
             //DecreaseHealth(level); //Bullet2.damage);
             health -= Bullet2.damage;
         }
-        else if (collision.gameObject.CompareTag("Bullet3"))
+        else if (collision.gameObject.CompareTag(BULLET3_TAG))
         {
             //DecreaseHealth(level);//Bullet3.damage);
             health -= Bullet3.damage;
@@ -93,8 +89,7 @@ public class EnemyPlane : MonoBehaviour
     }
    
 
-
-        // method will decrease health if touched by bullet
+    // method will decrease health if touched by bullet
     public void DecreaseHealth(int level) //int damage)
     {
        // health -= damage;
@@ -117,11 +112,13 @@ public class EnemyPlane : MonoBehaviour
 
             else if (level == 2)
             {
+                plane = findPlane.GetComponent<PlaneMovement>();
                 plane.LevelTracker(2);
             }
 
             else if (level == 3)
             {
+                plane = findPlane.GetComponent<PlaneMovement>();
                 plane.LevelTracker(3);
             }
        // }

@@ -31,7 +31,7 @@ public class CoinCount : MonoBehaviour
     {
         if(coins - coinsToSubtract < 0)
 	    {
-	        Debug.Log("Not Enough Money");
+	        //Debug.Log("Not Enough Money");
 	    }
 	    else
         {

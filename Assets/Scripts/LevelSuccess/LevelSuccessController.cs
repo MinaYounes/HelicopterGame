@@ -4,12 +4,18 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 public class LevelSuccessController : MonoBehaviour
 {
+
     static int SceneTracker = 1;
+
+   /* public void GoBack()
+    {
+        SceneManager.LoadScene("LevelSuccess");
+    } */
 
     // clicking store goes to store scene
     public void Store()
     {
-        //SceneManager.LoadScene("Store");
+        SceneManager.LoadScene("Shop");
     }
 
     // clicking save game saves data
@@ -21,20 +27,17 @@ public class LevelSuccessController : MonoBehaviour
     // clicking next level goes to the next level
     public void NextLevel()
     {
-        SceneTracker++;
+	    DeathController.SceneTracker +=1;
+	    SceneTracker++;
+        EnemyPlane.level++;
         SceneManager.LoadScene(SceneTracker);
         
     }
-
-    public void Restart()
-    {
-        SceneManager.LoadScene(SceneTracker);
-    }
-
 
     // if main menu pressed at ending scene
     public void MainMenu()
     {
         SceneManager.LoadScene("MainMenu");
+        ShopController.coins = 0;
     }
 }

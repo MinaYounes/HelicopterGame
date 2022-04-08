@@ -1,20 +1,18 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
-using UnityEngine.SceneManagement;
 
-public class Bullet : MonoBehaviour
+public class Bullet3 : MonoBehaviour
 {
-    public static float speed = 6f;
-    public static int damage = 20;
+    public static float speed = 8f;
+    public static int damage = 10;
     public Rigidbody2D rb;
     private string AIRPORT_TAG = "Airport";
     private string ENEMY_TAG = "Enemy";
     private string ENEMYLVL2_TAG = "Enemy2";
     private string ENEMYLVL3_TAG = "Enemy3";
     private string METALBOX_TAG = "MetalBox";
-  
+
 
     // Start is called before the first frame update
     void Start()
@@ -35,15 +33,15 @@ public class Bullet : MonoBehaviour
         }
     }
 
-    // will increase the damage of this bullet to 30
+    // will increase the damage of this bullet to 20
     public static void IncreaseDamage()
     {
-        damage = 30;
+        damage = 20;
     }
 
-    // will increase the speed of this bullet to 7
+    // will increase the speed of this bullet to 9
     public static void IncreaseSpeed()
     {
-        speed = 7f;
+        speed = 9f;
     }
 }

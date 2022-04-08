@@ -286,7 +286,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1194854196}
-        m_TargetAssemblyTypeName: LevelSuccessController, Assembly-CSharp
+        m_TargetAssemblyTypeName: DeathController, Assembly-CSharp
         m_MethodName: Restart
         m_Mode: 1
         m_Arguments:
@@ -585,7 +585,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1194854195}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 062c5b410b77a89409529368a909c5fc, type: 3}
+  m_Script: {fileID: 11500000, guid: 85a1dc85f3cf90d4db3e81172670d447, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!4 &1194854197

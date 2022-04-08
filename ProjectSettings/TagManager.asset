@@ -17,6 +17,9 @@ TagManager:
   - MetalBox
   - Exit
   - Enemy3
+  - Bullet2
+  - Bullet3
+  - MissileSpeed
   layers:
   - Default
   - TransparentFX

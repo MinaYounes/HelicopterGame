@@ -290,7 +290,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 078cc206f19f8274c8ca6e210825372d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 5
+  moveSpeed: 4
   rb: {fileID: 7177562625524159680}
 --- !u!61 &7177562625524159708
 BoxCollider2D:
@@ -331,7 +331,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   firePoint: {fileID: 7177562624613777215}
-  bulletPrefab: {fileID: 0}
+  bulletPrefab1: {fileID: 3439062253290305094, guid: c168f3a8cfc43024b8d47f781d60bc47, type: 3}
+  bulletPrefab2: {fileID: 6012757201011758100, guid: 0e243be65f272e746972310dddbcffab, type: 3}
+  bulletPrefab3: {fileID: 6636438943284330359, guid: 676c13d67e9811240b1f60f9cedea75b, type: 3}
 --- !u!70 &-7118353486605205564
 CapsuleCollider2D:
   m_ObjectHideFlags: 0

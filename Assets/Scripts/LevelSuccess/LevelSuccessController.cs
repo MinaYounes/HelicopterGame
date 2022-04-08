@@ -5,12 +5,9 @@ using UnityEngine.SceneManagement;
 public class LevelSuccessController : MonoBehaviour
 {
 
-    static int SceneTracker = 1;
+    public static int SceneTracker = 1;
 
-   /* public void GoBack()
-    {
-        SceneManager.LoadScene("LevelSuccess");
-    } */
+    
 
     // clicking store goes to store scene
     public void Store()
@@ -21,7 +18,11 @@ public class LevelSuccessController : MonoBehaviour
     // clicking save game saves data
     public void SaveGame()
     {
-        //TODO at the end
+        
+        SaveSystem.SavePlayer();
+
+        SceneManager.LoadScene("MainMenu");
+
     }
 
     // clicking next level goes to the next level

@@ -15,13 +15,6 @@ public class CoinCount : MonoBehaviour
     void Start()
     {
 	    coinText.text = coins.ToString();
-        //notEnoughCoins = GameObject.Find("NotEnough").GetComponent<Text>();
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
- 
     }
 
     // adds coin to players wallet
@@ -43,7 +36,7 @@ public class CoinCount : MonoBehaviour
             
             StartCoroutine(StartCount());
         }
-        // player has enough coins
+        // player has enough coins, uprgade wanted component
 	    else
         {
 	        coins -= coinsToSubtract;
@@ -76,13 +69,12 @@ public class CoinCount : MonoBehaviour
         }
     }
 
-    // displays "Not Enough Coins" message for 1 second
+    // displays "Not Enough Coins" message for 1 second if unsufficient coins
     IEnumerator StartCount()
     {
         yield return new WaitForSeconds(1f);
        
         notEnoughCoins = GameObject.Find("NotEnough").GetComponent<Text>();
         notEnoughCoins.text = "";
- 
     }
 }

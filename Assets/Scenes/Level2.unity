@@ -696,7 +696,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7177562625524159683, guid: df513ae0260a6d24b86b6538394a4572, type: 3}
       propertyPath: m_Name
-      value: PlanePlayer
+      value: HelicopterPlayer
       objectReference: {fileID: 0}
     - target: {fileID: 7177562625524159709, guid: df513ae0260a6d24b86b6538394a4572, type: 3}
       propertyPath: bulletPrefab

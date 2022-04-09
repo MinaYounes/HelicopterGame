@@ -6,12 +6,12 @@ public class Airport : MonoBehaviour
 {
     private int health = 600;
     PlaneMovement plane;
-    GameObject findPlane;
+    GameObject findplane;
     public GameObject Explosion;
     private void Awake()
     {
         // find the gameobject of the player
-        findPlane = GameObject.FindGameObjectWithTag("Player");
+        findplane = GameObject.FindGameObjectWithTag("Player");
     }
 
     private void Update()
@@ -47,7 +47,7 @@ public class Airport : MonoBehaviour
     public void DestroyObject()
     {
         // finds object and increases the level progress (LevelTracker)
-        plane = findPlane.GetComponent<PlaneMovement>();
+        plane = findplane.GetComponent<PlaneMovement>();
         plane.LevelTracker(1);
         
         // explosion animation and airport disappears

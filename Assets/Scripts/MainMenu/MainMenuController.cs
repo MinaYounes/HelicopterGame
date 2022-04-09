@@ -76,4 +76,10 @@ public class MainMenuController : MonoBehaviour
         LevelSuccessController.SceneTracker++;
         SceneManager.LoadScene(LevelSuccessController.SceneTracker);
     }
+
+    // loads how to play scene
+    public void HowToPlay()
+    {
+        SceneManager.LoadScene("HowToPlay");
+    }
 }

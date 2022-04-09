@@ -1068,6 +1068,22 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1285988536711145075, guid: 6021b4ebb38084646b81dd6576a5672e, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 37.170517
+      objectReference: {fileID: 0}
+    - target: {fileID: 1285988536711145075, guid: 6021b4ebb38084646b81dd6576a5672e, type: 3}
+      propertyPath: m_LocalScale.y
+      value: -0.6745481
+      objectReference: {fileID: 0}
+    - target: {fileID: 1285988536711145075, guid: 6021b4ebb38084646b81dd6576a5672e, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -6.9648
+      objectReference: {fileID: 0}
+    - target: {fileID: 1285988536711145075, guid: 6021b4ebb38084646b81dd6576a5672e, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -4.7421
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6021b4ebb38084646b81dd6576a5672e, type: 3}
 --- !u!1001 &6845502242292494360
@@ -1160,7 +1176,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7177562625524159683, guid: df513ae0260a6d24b86b6538394a4572, type: 3}
       propertyPath: m_Name
-      value: PlanePlayer
+      value: HelicopterPlayer
       objectReference: {fileID: 0}
     - target: {fileID: 7177562625524159709, guid: df513ae0260a6d24b86b6538394a4572, type: 3}
       propertyPath: bulletPrefab

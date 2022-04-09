@@ -796,7 +796,7 @@ GameObject:
   - component: {fileID: 2044830639}
   - component: {fileID: 2044830638}
   m_Layer: 5
-  m_Name: Image
+  m_Name: Helicopter
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -819,7 +819,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: -34}
-  m_SizeDelta: {x: 148.3334, y: 100}
+  m_SizeDelta: {x: 300, y: 120}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2044830638
 MonoBehaviour:
@@ -841,7 +841,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 5881882db51544c478f4aafecb884e07, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 0f923793e013f2c4597d62ef8e4012ab, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1

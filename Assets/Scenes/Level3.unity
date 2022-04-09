@@ -132,7 +132,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 7177562625524159683, guid: df513ae0260a6d24b86b6538394a4572, type: 3}
       propertyPath: m_Name
-      value: PlanePlayer
+      value: HelicopterPlayer
       objectReference: {fileID: 0}
     - target: {fileID: 7177562625524159709, guid: df513ae0260a6d24b86b6538394a4572, type: 3}
       propertyPath: bulletPrefab
@@ -2098,7 +2098,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1285988537821895287, guid: 6021b4ebb38084646b81dd6576a5672e, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 5.261
+      value: 5.07
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6021b4ebb38084646b81dd6576a5672e, type: 3}

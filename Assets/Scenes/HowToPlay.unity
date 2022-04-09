@@ -302,8 +302,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -473, y: 0.000015259}
-  m_SizeDelta: {x: 699.8762, y: 325.6}
+  m_AnchoredPosition: {x: -434, y: -19.1885}
+  m_SizeDelta: {x: 868, y: 363.9772}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &446295777
 MonoBehaviour:
@@ -338,14 +338,14 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 'W : Plane goes up
+  m_Text: 'W : Helicopter goes up
 
-    A : Plane goes left
+    A : Helicopter  goes left
 
-    S : Plane goes down
+    S : Helicopter 
+    goes down
 
-    D
-    : Plane goes right
+    D : Helicopter  goes right
 
 '
 --- !u!222 &446295778
@@ -1330,8 +1330,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -533.48, y: 233}
-  m_SizeDelta: {x: 578.9246, y: 93.4734}
+  m_AnchoredPosition: {x: -433.48, y: 233}
+  m_SizeDelta: {x: 900, y: 93.4734}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2068832689
 MonoBehaviour:
@@ -1366,7 +1366,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Plane Movement
+  m_Text: Helicopter Movement
 --- !u!222 &2068832690
 CanvasRenderer:
   m_ObjectHideFlags: 0

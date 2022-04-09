@@ -439,7 +439,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 062c5b410b77a89409529368a909c5fc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cam: {fileID: 2018343912}
 --- !u!4 &783391802
 Transform:
   m_ObjectHideFlags: 0
@@ -665,7 +664,7 @@ GameObject:
   - component: {fileID: 1430735050}
   - component: {fileID: 1430735049}
   m_Layer: 5
-  m_Name: Plane
+  m_Name: Helicopter
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -680,7 +679,7 @@ RectTransform:
   m_GameObject: {fileID: 1430735047}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1.5, y: 1, z: 1}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1563297132}
   m_RootOrder: 4
@@ -688,7 +687,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 43.1, y: 10.8}
-  m_SizeDelta: {x: 100, y: 100}
+  m_SizeDelta: {x: 320, y: 150}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1430735049
 MonoBehaviour:
@@ -710,7 +709,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 5881882db51544c478f4aafecb884e07, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 0f923793e013f2c4597d62ef8e4012ab, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -1081,7 +1080,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 72, y: 294}
+  m_AnchoredPosition: {x: 72, y: 220}
   m_SizeDelta: {x: 1487.4209, y: 120.0836}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1653024436
@@ -1222,7 +1221,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 062c5b410b77a89409529368a909c5fc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cam: {fileID: 2018343912}
 --- !u!1 &2092028196
 GameObject:
   m_ObjectHideFlags: 0

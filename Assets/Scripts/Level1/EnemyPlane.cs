@@ -36,9 +36,10 @@ public class EnemyPlane : MonoBehaviour
     }
     private void Update()
     {
+        // if health of an enemy plane is below 0, destroy object
         if(health <= 0)
         {
-            DecreaseHealth(level);
+            DestroyObject(level);
         }
     }
     // In case of collision
@@ -62,22 +63,22 @@ public class EnemyPlane : MonoBehaviour
 
     }
 
+    // if collision happens
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        Debug.Log("lvl variable: " + level);
+        // reduce health if enemyplane touched by missile
         if (collision.gameObject.CompareTag(BULLET_TAG))
         {
-            //DecreaseHealth(level); //Bullet.damage);
             health -= Bullet.damage;
         }
+        // reduce health if enemyplane touched by subsonic
         else if (collision.gameObject.CompareTag(BULLET2_TAG))
         {
-            //DecreaseHealth(level); //Bullet2.damage);
             health -= Bullet2.damage;
         }
+        // reduce health if enemyplane touched by mach 8
         else if (collision.gameObject.CompareTag(BULLET3_TAG))
         {
-            //DecreaseHealth(level);//Bullet3.damage);
             health -= Bullet3.damage;
         }
     } 
@@ -89,46 +90,34 @@ public class EnemyPlane : MonoBehaviour
     }
    
 
-    // method will decrease health if touched by bullet
-    public void DecreaseHealth(int level) //int damage)
+    // method will destroy the object
+    public void DestroyObject(int level) 
     {
-       // health -= damage;
 
-        // if health is 0, destroy the plane
-       // if (health <= 0)
-       // {
-            ExplodeAndDestroy();
-            if (level == 1)
-            {
-                //PlaneMovement.levelOneProgress++;
-                //Debug.Log("enemypln lvltracker: " + PlaneMovement.levelOneProgress + " /12");
-               // findPlane = GameObject.FindGameObjectWithTag(PLAYER_TAG);
-                plane = findPlane.GetComponent<PlaneMovement>();
-                plane.LevelTracker(1);
-
-
-                //Debug.Log("enmyplne, leveloneprog: " + PlaneMovement.levelOneProgress);
-            }
-
-            else if (level == 2)
-            {
-                plane = findPlane.GetComponent<PlaneMovement>();
-                plane.LevelTracker(2);
-            }
-
-            else if (level == 3)
-            {
-                plane = findPlane.GetComponent<PlaneMovement>();
-                plane.LevelTracker(3);
-            }
-       // }
+        ExplodeAndDestroy();
+        // increase progress tracker of level 1
+        if (level == 1)
+        {
+            plane = findPlane.GetComponent<PlaneMovement>();
+            plane.LevelTracker(1);
+        }
+        // increase progress tracker of level 2
+        else if (level == 2)
+        {
+            plane = findPlane.GetComponent<PlaneMovement>();
+            plane.LevelTracker(2);
+        }
+        // increase progress tracker of level 3
+        else if (level == 3)
+        {
+            plane = findPlane.GetComponent<PlaneMovement>();
+            plane.LevelTracker(3);
+        }
     }
     
-
     // function will make an explosion effect and destroy the object
     void ExplodeAndDestroy()
     {
-        //plane = findPlane.GetComponent<PlaneMovement>();
         Instantiate(Explosion, transform.position, Quaternion.identity);
         Destroy(gameObject);
     }

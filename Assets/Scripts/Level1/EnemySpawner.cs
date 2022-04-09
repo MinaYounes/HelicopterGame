@@ -46,7 +46,6 @@ public class EnemySpawner : MonoBehaviour
             {
                 spawnedPlane.transform.position = rightTopPos.position;
                 PlaneSpawnFromRight();
-
             }
             // Spawn enemy plane in middle right position
             else if (randomSide == 1)

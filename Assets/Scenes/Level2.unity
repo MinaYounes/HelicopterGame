@@ -3202,7 +3202,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "-Rescue the 7 men\n-Destroy all enemy planes\n-Deliver the men on the
+  m_Text: "-Rescue the 7 men\n-Destroy all enemy planes\n-Deliver the men to the
     top \nof the building"
 --- !u!222 &1363510245
 CanvasRenderer:

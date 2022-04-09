@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
+using System.IO;
 
 public class MainMenuController : MonoBehaviour
 {
@@ -23,6 +24,8 @@ public class MainMenuController : MonoBehaviour
     {
         // reset game components
         EnemyPlane.level = 1;
+        LevelSuccessController.SceneTracker = 1;
+        DeathController.SceneTracker = 1;
 
         Bullet.speed = 6f;
         Bullet.damage = 20;
@@ -33,6 +36,7 @@ public class MainMenuController : MonoBehaviour
         Bullet3.speed = 8f;
         Bullet3.damage = 10;
 
+     
         // if email is set to true, always give 100 bonus coins when game restarts
         if (ReadInput.emailEntered == true)
         {
@@ -47,5 +51,28 @@ public class MainMenuController : MonoBehaviour
         SceneManager.LoadScene("Level1");
     }
 
-    //TODO: scene manager for load game. Do when multiple scenes/levels added
+    public void LoadGame()
+    {
+        PlayerData data = SaveSystem.LoadPlayer();
+
+        CoinCount.coins = data.coins;
+        LevelSuccessController.SceneTracker = data.sceneTracker;
+        DeathController.SceneTracker = ++data.deadSceneTracker;
+        
+        EnemyPlane.level = ++data.level;
+
+        ReadInput.emailEntered = data.email;
+
+        Bullet.damage = data.bullet1Damage;
+        Bullet.speed = data.bullet1Speed;
+
+        Bullet2.damage = data.bullet2Damage;
+        Bullet2.speed = data.bullet2Speed;
+
+        Bullet3.damage = data.bullet3Damage;
+        Bullet3.speed = data.bullet3Speed;
+
+        LevelSuccessController.SceneTracker++;
+        SceneManager.LoadScene(LevelSuccessController.SceneTracker);
+    }
 }

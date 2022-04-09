@@ -1145,6 +1145,14 @@ PrefabInstance:
       propertyPath: m_IsTrigger
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 6845502242504129958, guid: 26c97b8646660db4891d98033ea454a7, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 1.706
+      objectReference: {fileID: 0}
+    - target: {fileID: 6845502242504129958, guid: 26c97b8646660db4891d98033ea454a7, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -5.528
+      objectReference: {fileID: 0}
     - target: {fileID: 6845502242504130008, guid: 26c97b8646660db4891d98033ea454a7, type: 3}
       propertyPath: m_IsTrigger
       value: 1

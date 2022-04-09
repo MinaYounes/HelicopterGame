@@ -1011,6 +1011,22 @@ PrefabInstance:
       propertyPath: m_Name
       value: Spawner
       objectReference: {fileID: 0}
+    - target: {fileID: 827197921214823264, guid: 2c334fcef26d66d4692c97b028119c78, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -8.87
+      objectReference: {fileID: 0}
+    - target: {fileID: 827197921214823264, guid: 2c334fcef26d66d4692c97b028119c78, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.06
+      objectReference: {fileID: 0}
+    - target: {fileID: 827197921514374873, guid: 2c334fcef26d66d4692c97b028119c78, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -8.81
+      objectReference: {fileID: 0}
+    - target: {fileID: 827197921514374873, guid: 2c334fcef26d66d4692c97b028119c78, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 4.4
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2c334fcef26d66d4692c97b028119c78, type: 3}
 --- !u!1001 &1285988537022071880

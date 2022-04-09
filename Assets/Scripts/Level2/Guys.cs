@@ -13,6 +13,7 @@ public class Guys : MonoBehaviour
         findPlane = GameObject.FindGameObjectWithTag(PLAYER_TAG);
     }
 
+    // if collision with player's plane, guy got picked up and destroy the guy object while increasing progress of level 2
     private void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.gameObject.CompareTag(PLAYER_TAG))

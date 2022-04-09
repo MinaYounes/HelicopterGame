@@ -46,7 +46,6 @@ public class EnemySpawnerLvl2 : MonoBehaviour
             {
                 spawnedPlane.transform.position = rightTop1.position;
                 PlaneSpawner();
-
             }
             // Spawn enemy plane in top right 2 position
             else if (randomSide == 1)
@@ -88,7 +87,6 @@ public class EnemySpawnerLvl2 : MonoBehaviour
             spawnedPlane.GetComponent<EnemyPlane>().speed = -Random.Range(2, 4);
             // Flips planes coming from the right side
             spawnedPlane.transform.localScale = new Vector3(-0.1f, 0.1f, 0.1f);
-
         }
     }
 }

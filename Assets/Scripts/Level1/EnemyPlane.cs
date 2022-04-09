@@ -20,7 +20,7 @@ public class EnemyPlane : MonoBehaviour
     private string BULLET3_TAG = "Bullet3";
 
     private SpriteRenderer sr;
-    private int health = 5; //prev 100
+    private int health = 100;
     PlaneMovement plane;
     GameObject findPlane;
     public GameObject Explosion;

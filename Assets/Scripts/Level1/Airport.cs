@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Airport : MonoBehaviour
 {
-    private int health = 5; //prev:800
+    private int health = 600;
     PlaneMovement plane;
     GameObject findPlane;
     public GameObject Explosion;

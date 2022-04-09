@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
+using System.IO;
 
 public class MainMenuController : MonoBehaviour
 {
@@ -23,6 +24,8 @@ public class MainMenuController : MonoBehaviour
     {
         // reset game components
         EnemyPlane.level = 1;
+        LevelSuccessController.SceneTracker = 1;
+        DeathController.SceneTracker = 1;
 
         Bullet.speed = 6f;
         Bullet.damage = 20;
@@ -33,6 +36,7 @@ public class MainMenuController : MonoBehaviour
         Bullet3.speed = 8f;
         Bullet3.damage = 10;
 
+     
         // if email is set to true, always give 100 bonus coins when game restarts
         if (ReadInput.emailEntered == true)
         {

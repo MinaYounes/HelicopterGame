@@ -17,6 +17,7 @@ public class PlayerData
     public int bullet3Damage;
     public float bullet3Speed;
 
+    // get player data for each attribute
     public PlayerData()
     {
         coins = CoinCount.coins;

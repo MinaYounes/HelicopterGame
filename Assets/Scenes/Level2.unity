@@ -3166,8 +3166,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.5}
   m_AnchorMax: {x: 0, y: 0.5}
-  m_AnchoredPosition: {x: 478.5184, y: -91.24064}
-  m_SizeDelta: {x: 845.037, y: 212.4813}
+  m_AnchoredPosition: {x: 478.5184, y: -121.18363}
+  m_SizeDelta: {x: 845.037, y: 272.3673}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1363510244
 MonoBehaviour:
@@ -3202,12 +3202,8 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: '-Rescue the 7 men
-
-    -Destroy all enemy planes
-
-    -Deliver the men
-    to the building'
+  m_Text: "-Rescue the 7 men\n-Destroy all enemy planes\n-Deliver the men on the
+    top \nof the building"
 --- !u!222 &1363510245
 CanvasRenderer:
   m_ObjectHideFlags: 0

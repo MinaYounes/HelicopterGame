@@ -90,7 +90,7 @@ public class EnemySpawnerLvl3 : MonoBehaviour
         // Speed of spawned plane will be random number between 3 and 4
         spawnedPlane.GetComponent<EnemyPlane>().speed = -Random.Range(3, 5);
         // Flips planes coming from the right side
-        spawnedPlane.transform.localScale = new Vector3(-0.1f, 0.1f, 0.1f);
+        spawnedPlane.transform.localScale = new Vector3(-0.15f, 0.15f, 0.15f);
     }
 
     // when a plane spawns from left, set speed 

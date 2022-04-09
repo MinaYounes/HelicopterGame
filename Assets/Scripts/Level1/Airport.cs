@@ -53,6 +53,5 @@ public class Airport : MonoBehaviour
         // explosion animation and airport disappears
         Instantiate(Explosion, transform.position, Quaternion.identity);
         Destroy(gameObject);
-    }
-    
+    }    
 }

@@ -11,8 +11,11 @@ public class MainMenuController : MonoBehaviour
 
     private void Update()
     {
+        Scene currentScene = SceneManager.GetActiveScene();
+        string sceneName = currentScene.name;
+
         // if the email is entered or was entered, "+100 coins" continues to display on main menu
-        if(ReadInput.emailEntered == true)
+        if (ReadInput.emailEntered == true && sceneName != "HowToPlay")
         {
             bonusCoins = GameObject.Find("ThanksForEmail").GetComponent<Text>();
             bonusCoins.text = "+100 coins!";

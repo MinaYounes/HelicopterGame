@@ -43,11 +43,13 @@ public class Timer : MonoBehaviour
         }
     }
 
+    // resets timer
     private void ResetTimer()
     {
         timer = timeDuration;
     }
 
+    // updates the timer format
     private void UpdateTimerDisplay(float time)
     {
         // minutes

@@ -51,6 +51,7 @@ public class MainMenuController : MonoBehaviour
         SceneManager.LoadScene("Level1");
     }
 
+    // if load game wanted, gets previously saved data from saved file 
     public void LoadGame()
     {
         PlayerData data = SaveSystem.LoadPlayer();

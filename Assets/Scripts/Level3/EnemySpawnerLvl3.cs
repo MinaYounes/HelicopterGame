@@ -18,8 +18,6 @@ public class EnemySpawnerLvl3 : MonoBehaviour
 
     // Random plane spawned
     private int randomIndex;
-    // Spawns random side
-    private int randomSide;
 
     // Start is called before the first frame update
     void Start()

@@ -7,17 +7,13 @@ public class Exit : MonoBehaviour
     PlaneMovement plane;
     GameObject findPlane;
     private string PLAYER_TAG = "Player";
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
+  
     private void Awake()
     {
         findPlane = GameObject.FindGameObjectWithTag(PLAYER_TAG);
     }
 
+    // if plane touches exit, increase progress by one of level 3
     private void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.gameObject.CompareTag(PLAYER_TAG))

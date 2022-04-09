@@ -18,16 +18,7 @@ public class ShopController : MonoBehaviour
     }
     private void Update()
     {
-        Debug.Log("missileSpeed: " + Bullet.speed);
-        Debug.Log("missileDmage: " + Bullet.damage);
-
-        Debug.Log("2spped: " + Bullet2.speed);
-        Debug.Log("2speed: " + Bullet2.damage);
-
-        Debug.Log("3speed: " + Bullet3.speed);
-        Debug.Log("3speed: " + Bullet3.damage);
-
-        // keep buttons disabled if they were bought 
+        // keep buttons disabled of upgrades if they were bought 
         if (Bullet.speed == 7f)
         {
             DisableButton("missileSpeedButton");
@@ -60,37 +51,37 @@ public class ShopController : MonoBehaviour
         coins = CoinCount.coins;
 	    SceneManager.LoadScene("LevelSuccess");
     }
-
+    // if upgrade of missile speed clicked
     public void MissileSpeed()
     {
         // checks if could upgrade speed of bullet1
         CheckCoins("1s");
     }
-
+    // if upgrade of missile damage clicked
     public void MissileDamage()
     {
         // checks if could upgrade damage of bullet2
         CheckCoins("1d");
     }
-
+    // if upgrade of subsonic speed clicked
     public void SubsonicSpeed()
     {
         // checks if could upgrade speed of bullet2
         CheckCoins("2s");
     }
-
+    // if upgrade of subsonic damage clicked
     public void SubsonicDamage()
     {
         // checks if could upgrade damage of bullet3
         CheckCoins("2d");
     }
-
+    // if upgrade of mach8 speed clicked
     public void Mach8Speed()
     {
         // checks if could upgrade speed of bullet3
         CheckCoins("3s");        
     }
-
+    // if upgrade of mach8 damage clicked
     public void Mach8Damage()
     {
         // checks if could upgrade damage of bullet3

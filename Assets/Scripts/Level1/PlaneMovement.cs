@@ -5,8 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class PlaneMovement : MonoBehaviour
 {
-
-    // Code reused from Youtube video by Brackleys
+    // Code inspired by youtuber Brackleys
 
     public float moveSpeed = 3.5f;
     public Rigidbody2D rb;
@@ -58,7 +57,7 @@ public class PlaneMovement : MonoBehaviour
         transform.Rotate(0f, 180f, 0f);
     }
 
-    // if player plane touches ground, an enemy plane, airport, metal crates, or exit sign at lvl3
+    // if player plane touches ground, an enemy plane, airport, metal crates, or exit sign at lvl3, destroy the player's plane
     private void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.gameObject.CompareTag(ENEMY_TAG)|| collision.gameObject.CompareTag(ENEMYLVL2_TAG) || collision.gameObject.CompareTag(AIRPORT_TAG) 
@@ -83,7 +82,6 @@ public class PlaneMovement : MonoBehaviour
                 levelOneCompleted = true;
             }
         }
-
         else if(level == 2)
         {
             // increase progress tracker of level 2
@@ -95,7 +93,6 @@ public class PlaneMovement : MonoBehaviour
                 levelTwoCompleted = true;
             }
         }
-
         else if(level == 3)
         {
             // increase progress tracker of level 3
@@ -120,7 +117,7 @@ public class PlaneMovement : MonoBehaviour
         }
     }   
 
-    // Coroutine, will wait 2 seconds and change scene to level completed successfully
+    // Coroutine, will wait 2 seconds and change scene to level completed successfully while increasing coins by 100
     IEnumerator WaitFewSeconds()
     {
         yield return new WaitForSeconds(2);
@@ -135,7 +132,6 @@ public class PlaneMovement : MonoBehaviour
         SceneManager.LoadScene("FinishedGame");
     }
     
-
     // increases number of guys rescued
     public void PickedUp()
     {

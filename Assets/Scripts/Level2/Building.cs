@@ -23,6 +23,7 @@ public class Building : MonoBehaviour
             plane = findPlane.GetComponent<PlaneMovement>();
             guysPickedUp = plane.PickedUpGetter();
 
+            // increase progress by 1 of level 2 if all guys picked up and delivered to the building
             if(guysPickedUp == 7 && guysRescued == false)
             {
                 plane.LevelTracker(2);

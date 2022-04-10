@@ -20,6 +20,7 @@ public class Exit : MonoBehaviour
         {
             plane = findPlane.GetComponent<PlaneMovement>();
             plane.LevelTracker(3);
+	    ExitObj.exited = true;
         }
     }
 }

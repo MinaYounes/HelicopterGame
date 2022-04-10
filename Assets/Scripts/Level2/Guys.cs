@@ -22,7 +22,7 @@ public class Guys : MonoBehaviour
             plane.LevelTracker(2);
             plane.PickedUp();
             Destroy(gameObject);
-
+	    RescueCount.count += 1;
         }
     }
 }

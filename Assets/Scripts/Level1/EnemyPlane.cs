@@ -40,6 +40,9 @@ public class EnemyPlane : MonoBehaviour
         if(health <= 0)
         {
             DestroyObject(level);
+	    PlaneCount.count +=1;
+	    PlaneCount2.count +=1;
+	    PlaneCount3.count +=1;
         }
     }
     // In case of collision

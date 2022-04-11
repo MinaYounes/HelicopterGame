@@ -20,6 +20,7 @@ public class Airport : MonoBehaviour
         if (health <= 0)
         {
             DestroyObject();
+	    AirportCount.count +=1;
         }
     }
 

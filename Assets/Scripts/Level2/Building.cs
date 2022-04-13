@@ -28,6 +28,7 @@ public class Building : MonoBehaviour
             {
                 plane.LevelTracker(2);
                 guysRescued = true;
+		Rescued.rescue = true;
             }
         }
     }

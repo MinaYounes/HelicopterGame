@@ -24,9 +24,12 @@ public class PlaneMovement : MonoBehaviour
     private int guysPickedUp = 0;
     private bool levelThreeCompleted = false;
     private int levelThreeProgress = 0;
+    public GameObject Explosion;
+    private int state = 0;
 
     void Update()
     {
+        if (state == 1) return;
         // Get X movement position
         movement.x = Input.GetAxisRaw("Horizontal");
 
@@ -46,6 +49,7 @@ public class PlaneMovement : MonoBehaviour
   
     void FixedUpdate()
     {
+        if (state == 1) return;
         // Move with certain speed
         rb.MovePosition(rb.position + movement * moveSpeed * Time.fixedDeltaTime);
     }
@@ -63,8 +67,10 @@ public class PlaneMovement : MonoBehaviour
         if (collision.gameObject.CompareTag(ENEMY_TAG)|| collision.gameObject.CompareTag(ENEMYLVL2_TAG) || collision.gameObject.CompareTag(AIRPORT_TAG) 
             || collision.gameObject.CompareTag(METALBOX_TAG) || collision.gameObject.CompareTag(ENEMYLVL3_TAG) || collision.gameObject.CompareTag(LIMIT_TAG))
         {
-            Destroy(gameObject);
-            SceneManager.LoadScene("Death");
+            state = 1;
+            Instantiate(Explosion, transform.position, Quaternion.identity);
+            gameObject.GetComponent<Renderer>().enabled = false;
+            StartCoroutine(WaitThenDie());
         }
     }
     
@@ -130,6 +136,14 @@ public class PlaneMovement : MonoBehaviour
     {
         yield return new WaitForSeconds(2);
         SceneManager.LoadScene("FinishedGame");
+    }
+
+    // Coroutine will wait 2 seconds then display the death scene
+    IEnumerator WaitThenDie()
+    {
+        yield return new WaitForSeconds(2f);
+        Destroy(gameObject);
+        SceneManager.LoadSceneAsync("Death");
     }
     
     // increases number of guys rescued

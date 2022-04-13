@@ -376,6 +376,7 @@ MonoBehaviour:
   moveSpeed: 4
   rb: {fileID: 7177562625524159680}
   levelOneProgress: 0
+  Explosion: {fileID: 3759417597845953750, guid: d32425d3850bcbd44bfed7db1d76c121, type: 3}
 --- !u!61 &7177562625524159708
 BoxCollider2D:
   m_ObjectHideFlags: 0

@@ -11,7 +11,8 @@ public class ExitObj : MonoBehaviour
     void Start()
     {
         exited = false;
-	exitText.text = "reach the exit before time runs out";
+	exitText.text = "avoid obstacles and reach the \n" +
+            "exit before time runs out";
     }
 
     // Update is called once per frame

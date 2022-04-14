@@ -20,6 +20,7 @@ TagManager:
   - Bullet2
   - Bullet3
   - MissileSpeed
+  - Trail
   layers:
   - Default
   - TransparentFX

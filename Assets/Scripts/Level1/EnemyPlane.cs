@@ -64,6 +64,11 @@ public class EnemyPlane : MonoBehaviour
             SceneManager.LoadScene("Death");
         }
 
+        if(collision.gameObject.CompareTag(PLAYER_TAG))
+        {
+            Instantiate(Explosion, transform.position, Quaternion.identity);
+            Destroy(gameObject);
+        }
     }
 
     // if collision happens

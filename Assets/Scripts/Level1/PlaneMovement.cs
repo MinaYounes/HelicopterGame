@@ -16,6 +16,7 @@ public class PlaneMovement : MonoBehaviour
     private string AIRPORT_TAG = "Airport";
     private string METALBOX_TAG = "MetalBox";
     private string LIMIT_TAG = "Limit";
+    private string TRAIL_TAG = "Trail";
     Vector2 movement;
     private bool levelOneCompleted = false;
     public int levelOneProgress = 0;
@@ -25,16 +26,20 @@ public class PlaneMovement : MonoBehaviour
     private bool levelThreeCompleted = false;
     private int levelThreeProgress = 0;
     public GameObject Explosion;
-    private int state = 0;
+    private bool isAlive = true;
+    
+
 
     void Update()
     {
-        if (state == 1) return;
-        // Get X movement position
-        movement.x = Input.GetAxisRaw("Horizontal");
+        // Get X movement position if player is alive
+        if (isAlive)
+        {
+            movement.x = Input.GetAxisRaw("Horizontal");
+        }
 
         // If "D" pressed, plane faces right side when game is not paused
-        if(movement.x > 0 && !facingRight && PauseMenu.GameIsPaused == false)
+        if (movement.x > 0 && !facingRight && PauseMenu.GameIsPaused == false)
         {
             Flip();
         }
@@ -43,13 +48,15 @@ public class PlaneMovement : MonoBehaviour
         {
             Flip();
         }
-        // Get Y movement position
-        movement.y = Input.GetAxisRaw("Vertical");
+        // Get Y movement position if player is alive
+        if (isAlive)
+        {
+            movement.y = Input.GetAxisRaw("Vertical");
+        }
     }
   
     void FixedUpdate()
     {
-        if (state == 1) return;
         // Move with certain speed
         rb.MovePosition(rb.position + movement * moveSpeed * Time.fixedDeltaTime);
     }
@@ -67,8 +74,9 @@ public class PlaneMovement : MonoBehaviour
         if (collision.gameObject.CompareTag(ENEMY_TAG)|| collision.gameObject.CompareTag(ENEMYLVL2_TAG) || collision.gameObject.CompareTag(AIRPORT_TAG) 
             || collision.gameObject.CompareTag(METALBOX_TAG) || collision.gameObject.CompareTag(ENEMYLVL3_TAG) || collision.gameObject.CompareTag(LIMIT_TAG))
         {
-            state = 1;
+            isAlive = false;
             Instantiate(Explosion, transform.position, Quaternion.identity);
+            Destroy(GameObject.FindGameObjectWithTag(TRAIL_TAG));
             gameObject.GetComponent<Renderer>().enabled = false;
             StartCoroutine(WaitThenDie());
         }
@@ -126,7 +134,7 @@ public class PlaneMovement : MonoBehaviour
     // Coroutine, will wait 2 seconds and change scene to level completed successfully while increasing coins by 100
     IEnumerator WaitFewSeconds()
     {
-        yield return new WaitForSeconds(2);
+        yield return new WaitForSeconds(1);
 	    ShopController.coins += 100;
         SceneManager.LoadScene("LevelSuccess");
     }
@@ -140,10 +148,10 @@ public class PlaneMovement : MonoBehaviour
 
     // Coroutine will wait 2 seconds then display the death scene
     IEnumerator WaitThenDie()
-    {
-        yield return new WaitForSeconds(2f);
+    { 
+        yield return new WaitForSeconds(1);
         Destroy(gameObject);
-        SceneManager.LoadSceneAsync("Death");
+        SceneManager.LoadScene("Death");
     }
     
     // increases number of guys rescued

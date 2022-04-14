@@ -30,13 +30,13 @@ public class PlaneMovement : MonoBehaviour
         // Get X movement position
         movement.x = Input.GetAxisRaw("Horizontal");
 
-        // If "D" pressed, plane faces right side
-        if(movement.x > 0 && !facingRight)
+        // If "D" pressed, plane faces right side when game is not paused
+        if(movement.x > 0 && !facingRight && PauseMenu.GameIsPaused == false)
         {
             Flip();
         }
-        // If "A" pressed, plane faces left side
-        else if (movement.x < 0 && facingRight)
+        // If "A" pressed, plane faces left side when game is not paused
+        else if (movement.x < 0 && facingRight && PauseMenu.GameIsPaused == false)
         {
             Flip();
         }

@@ -14,20 +14,20 @@ public class Weapon : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        // When the key "F" is pressed
-        if (Input.GetKeyDown(KeyCode.F))
+        // When the key "F" is pressed, shoot bullet 1 if game not paused
+        if (Input.GetKeyDown(KeyCode.F) && PauseMenu.GameIsPaused == false)
         {
             Shoot(1);
         }
 
-        // When the key "G" is pressed
-        if (Input.GetKeyDown(KeyCode.G))
+        // When the key "G" is pressed, shoot bullet 2 if game not paused
+        if (Input.GetKeyDown(KeyCode.G) && PauseMenu.GameIsPaused == false)
         {
             Shoot(2);
         }
 
-        // When the key "H" is pressed
-        if (Input.GetKeyDown(KeyCode.H))
+        // When the key "H" is pressed, shoot bullet 3 if game not paused
+        if (Input.GetKeyDown(KeyCode.H) && PauseMenu.GameIsPaused == false)
         {
             Shoot(3);
         }

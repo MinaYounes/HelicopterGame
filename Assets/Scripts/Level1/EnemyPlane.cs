@@ -64,6 +64,7 @@ public class EnemyPlane : MonoBehaviour
             SceneManager.LoadScene("Death");
         }
 
+        // if enemy plane touches user helicopter, destroy enemy plane and make explosion effect
         if(collision.gameObject.CompareTag(PLAYER_TAG))
         {
             Instantiate(Explosion, transform.position, Quaternion.identity);

@@ -131,7 +131,7 @@ public class PlaneMovement : MonoBehaviour
         }
     }   
 
-    // Coroutine, will wait 2 seconds and change scene to level completed successfully while increasing coins by 100
+    // Coroutine, will wait 1 seconds and change scene to level completed successfully while increasing coins by 100
     IEnumerator WaitFewSeconds()
     {
         yield return new WaitForSeconds(1);
@@ -146,7 +146,7 @@ public class PlaneMovement : MonoBehaviour
         SceneManager.LoadScene("FinishedGame");
     }
 
-    // Coroutine will wait 2 seconds then display the death scene
+    // Coroutine will wait 1 seconds then display the death scene
     IEnumerator WaitThenDie()
     { 
         yield return new WaitForSeconds(1);

@@ -59,6 +59,8 @@ public class MainMenuController : MonoBehaviour
     {
         PlayerData data = SaveSystem.LoadPlayer();
 
+        if (data == null) return;
+
         CoinCount.coins = data.coins;
         LevelSuccessController.SceneTracker = data.sceneTracker;
         DeathController.SceneTracker = ++data.deadSceneTracker;

@@ -43,7 +43,7 @@ public class MainMenuController : MonoBehaviour
         // if email is set to true, always give 100 bonus coins when game restarts
         if (ReadInput.emailEntered == true)
         {
-            ShopController.coins += 100;
+            ShopController.coins = 100;
         }
         // if email not given, no bonus coins
 	    else
